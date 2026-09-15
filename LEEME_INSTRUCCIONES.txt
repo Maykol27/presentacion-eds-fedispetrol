@@ -1,0 +1,34 @@
+==============================================================
+GUIA RAPIDA DE APERTURA - PRESENTACION STOP & GO / FEDISPETROL
+==============================================================
+
+Para que la presentacion cargue al 100% con todos sus videos,
+logos e imagenes en Mac o Windows:
+
+PASO 1: DESCOMPRIMIR
+-------------------
+1. No abras el archivo index.html directamente desde la nube o visor de Drive.
+2. Descarga el archivo ZIP en tu Mac o Windows.
+3. Descomprime o extrae el archivo ZIP (en Mac simplemente haz doble clic sobre el .zip).
+
+PASO 2: ABRIR LA PRESENTACION
+----------------------------
+1. Entra a la carpeta descomprimida "presentacion_eds".
+2. Haz doble clic sobre "index.html" (se abrira en tu navegador por defecto: Chrome, Safari o Edge).
+   * Recomendado en Mac: Abrir con Google Chrome o Safari.
+
+PASO 3: ATAJOS DE TECLADO Y CONTROLES
+-------------------------------------
+- Flecha Derecha (->) o Espacio : Siguiente diapositiva.
+- Flecha Izquierda (<-)         : Diapositiva anterior.
+- Tecla F                       : Modo Pantalla Completa.
+- Tecla N                       : Abrir panel lateral con NOTAS Y GUION del orador.
+- Tecla G                       : Vista en cuadricula (todas las diapositivas).
+- Cronometro (30:00)            : Clic para pausar o reiniciar.
+
+DOCUMENTOS INCLUIDOS:
+--------------------
+- index.html                   : Presentacion interactiva.
+- GUIA_ESTUDIO_EXPOSITOR_EDS.md : Guia con discurso, tiempos y manejo de objeciones.
+- assets/                      : Carpeta con todas las imagenes, logos y videos HD.
+==============================================================

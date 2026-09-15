@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STOP & GO | Monetización y Transformación de Espacios en EDS · FEDISPETROL</title>
+  <link rel="icon" type="image/png" href="assets/logostop_go.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #39ff14;
+      --primary-dark: #28cc0a;
+      --primary-glow: rgba(57, 255, 20, 0.35);
+      --accent: #ff3344;
+      --accent-glow: rgba(255, 51, 68, 0.35);
+      --bg: #070709;
+      --bg-alt: #0d0d12;
+      --bg-card: rgba(255, 255, 255, 0.035);
+      --bg-card-hover: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-green: rgba(57, 255, 20, 0.3);
+      --text: #f3f3f6;
+      --text-muted: #9595a4;
+      --text-dim: #646473;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --heading: 'Outfit', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient background glow */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(57, 255, 20, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(0, 123, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(20, 20, 30, 0.6) 0%, transparent 100%);
+    }
+
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Top Navigation Bar */
+    header.deck-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      background: rgba(7, 7, 9, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .brand-logos {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logos img {
+      height: 36px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+    }
+
+    .brand-logos .divider {
+      width: 1px;
+      height: 24px;
+      background: var(--border);
+    }
+
+    /* Dedicated White Glow Container for CGBI Logo */
+    .cgbi-logo-glow {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 3px 10px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 14px rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      height: 34px;
+    }
+
+    .cgbi-logo-glow img {
+      height: 24px !important;
+      filter: none !important;
+    }
+
+    /* Client Logo Badge (FEDISPETROL) in Header */
+    .client-header-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 4px 12px 4px 6px;
+      border-radius: 100px;
+      backdrop-filter: blur(8px);
+      transition: var(--transition);
+    }
+
+    .client-header-badge:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--primary);
+    }
+
+    .client-header-badge img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .client-header-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .client-header-text .sub {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      line-height: 1;
+    }
+
+    .client-header-text .name {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .alliance-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(57, 255, 20, 0.08);
+      border: 1px solid var(--border-green);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .alliance-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 8px var(--primary);
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .timer-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--text);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .timer-pill:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--primary);
+    }
+
+    .ctrl-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .ctrl-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .ctrl-btn.active {
+      background: var(--primary);
+      color: #000;
+      border-color: var(--primary);
+    }
+
+    /* Slides Container */
+    .deck-container {
+      position: absolute;
+      top: 72px;
+      bottom: 60px;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 30px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px) scale(0.98);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .slide-content-wrapper {
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Slide Typography */
+    .slide-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(57, 255, 20, 0.08);
+      border: 1px solid var(--border-green);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .slide-title {
+      font-family: var(--heading);
+      font-size: clamp(2rem, 3.2vw, 2.9rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .slide-title span.highlight {
+      background: linear-gradient(135deg, var(--primary) 0%, #00e5ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-subtitle {
+      font-size: clamp(1rem, 1.3vw, 1.2rem);
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 28px;
+      max-width: 900px;
+    }
+
+    /* Cards & Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .card.featured {
+      border-color: var(--border-green);
+      background: linear-gradient(180deg, rgba(57, 255, 20, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    }
+
+    .card.featured::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), #00e5ff);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(57, 255, 20, 0.1);
+      border: 1px solid var(--border-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+
+    .card-title {
+      font-family: var(--heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Stat Callouts */
+    .stat-hero-box {
+      background: linear-gradient(135deg, rgba(57, 255, 20, 0.08) 0%, rgba(0, 123, 255, 0.05) 100%);
+      border: 1px solid var(--border-green);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      box-shadow: 0 0 40px rgba(57, 255, 20, 0.05);
+    }
+
+    .stat-big-number {
+      font-family: var(--heading);
+      font-size: 4.2rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--primary);
+      text-shadow: 0 0 25px var(--primary-glow);
+    }
+
+    .stat-hero-info h4 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+      font-family: var(--heading);
+    }
+
+    .stat-hero-info p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Media Containers */
+    .media-box {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+      background: #000;
+    }
+
+    .media-box img, .media-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid var(--border-green);
+      backdrop-filter: blur(8px);
+      padding: 6px 12px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    /* Bottom Control Bar */
+    footer.deck-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      background: rgba(7, 7, 9, 0.9);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      margin: 0 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), #00e5ff);
+      width: 0%;
+      transition: width 0.3s ease;
+      box-shadow: 0 0 10px var(--primary);
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .nav-btn.primary {
+      background: var(--primary);
+      color: #070709;
+      font-weight: 700;
+      border-color: var(--primary);
+    }
+
+    .nav-btn.primary:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .slide-counter {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      min-width: 60px;
+    }
+
+    /* Speaker Notes Panel (Drawer) */
+    .notes-panel {
+      position: fixed;
+      right: -420px;
+      top: 72px;
+      bottom: 60px;
+      width: 400px;
+      background: rgba(13, 13, 18, 0.97);
+      backdrop-filter: blur(20px);
+      border-left: 1px solid var(--border-green);
+      padding: 24px;
+      z-index: 90;
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .notes-panel.open {
+      right: 0;
+    }
+
+    .notes-title {
+      font-family: var(--heading);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .notes-section {
+      margin-bottom: 20px;
+    }
+
+    .notes-section-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .notes-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    .notes-keypoint {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--primary);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+    }
+
+    /* Interactive Calculator */
+    .calc-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .calc-slider {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+      cursor: pointer;
+    }
+
+    /* Modal / Drawer for slide overview */
+    .overview-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 7, 9, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 200;
+      display: none;
+      padding: 60px 40px;
+      overflow-y: auto;
+    }
+
+    .overview-modal.open {
+      display: block;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .overview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .overview-card:hover, .overview-card.current {
+      border-color: var(--primary);
+      background: rgba(57, 255, 20, 0.08);
+      transform: scale(1.02);
+    }
+
+    .overview-card-num {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .overview-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: rgba(57,255,20,0.15); color: var(--primary); border: 1px solid var(--border-green); }
+    .badge-blue { background: rgba(0,123,255,0.15); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3); }
+    .badge-purple { background: rgba(168,85,247,0.15); color: #c084fc; border: 1px solid rgba(192,132,252,0.3); }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+    @media (max-width: 1024px) {
+      .grid-4, .grid-3 { grid-template-columns: 1fr 1fr; }
+      .grid-5 { grid-template-columns: 1fr 1fr 1fr; }
+      .slide { padding: 24px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Header with original layout, light glow on CGBI, and FEDISPETROL client badge -->
+  <header class="deck-header">
+    <div class="brand-logos">
+      <img src="assets/logostop_go.png" alt="STOP & GO" style="height: 40px;">
+      <div class="divider"></div>
+      <img src="assets/cab-logo.png" alt="CABSAS" style="height: 36px; filter: brightness(1.2);">
+      <div class="divider"></div>
+      <!-- Logo CGBI con cápsula de luz blanca exclusiva -->
+      <div class="cgbi-logo-glow">
+        <img src="assets/cgbi-logo.png" alt="CGBI">
+      </div>
+      <div class="divider"></div>
+      <img src="assets/sikai-logo.png" alt="SIKAI Consulting" style="height: 26px;">
+      <div class="alliance-badge">
+        <div class="dot"></div>
+        <span>Alianza EDS</span>
+      </div>
+    </div>
+
+    <!-- Client Logo: FEDISPETROL -->
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <div class="client-header-badge">
+        <img src="assets/client_logo.jpg" alt="FEDISPETROL">
+        <div class="client-header-text">
+          <span class="sub">Presentación Especial</span>
+          <span class="name">FEDISPETROL</span>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="timer-pill" id="timerBtn" title="Clic para Iniciar / Pausar Cronómetro (30 Min)">
+          <span>⏱️</span>
+          <span id="timerDisplay">30:00</span>
+        </div>
+        <button class="ctrl-btn" id="notesToggleBtn" title="Ver Notas del Presentador (Tecla N)">📝</button>
+        <button class="ctrl-btn" id="gridToggleBtn" title="Ver Todas las Diapositivas (Tecla G)">⊞</button>
+        <button class="ctrl-btn" id="fullscreenBtn" title="Pantalla Completa (Tecla F)">⛶</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Deck Slides Container -->
+  <main class="deck-container" id="deckContainer">
+
+    <!-- ================= SLIDE 1: PORTADA ================= -->
+    <section class="slide active" data-index="0" data-time="2" data-title="Portada e Introducción">
+      <div class="slide-content-wrapper">
+        <div class="grid-2" style="align-items: center; gap: 48px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+              <div class="slide-badge" style="margin-bottom: 0;">PROPUESTA EXCLUSIVA PARA ESTACIONES AFILIADAS</div>
+            </div>
+
+            <!-- Destacado Fedispetrol en Portada -->
+            <div style="display: inline-flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); padding: 8px 18px 8px 10px; border-radius: 100px; margin-bottom: 18px;">
+              <img src="assets/client_logo.jpg" alt="FEDISPETROL" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; background: #fff; box-shadow: 0 0 12px rgba(255,255,255,0.3);">
+              <div>
+                <div style="font-size: 0.72rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;">FEDISPETROL · 70 AÑOS</div>
+                <div style="font-size: 0.88rem; color: #fff; font-weight: 600;">"Energía que une para servir"</div>
+              </div>
+            </div>
+
+            <h1 class="slide-title">
+              Transforme sus <span class="highlight">Espacios Disponibles</span> en Renta Inmobiliaria y Nuevos Negocios
+            </h1>
+            <p class="slide-subtitle">
+              Alianza multisectorial especializada en convertir áreas subutilizadas de EDS en polos comerciales de alta rentabilidad con arquitectura modular exprés e integración de franquicias líderes.
+            </p>
+            
+            <div style="display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap;">
+              <div class="badge-tag badge-green">✓ Montaje en 30 Días</div>
+              <div class="badge-tag badge-blue">✓ Cero Interrupción Operativa</div>
+              <div class="badge-tag badge-purple">✓ Respaldo Nacional de +3,000 EDS</div>
+            </div>
+
+            <div style="display: flex; gap: 14px; align-items: center;">
+              <button class="nav-btn primary" onclick="deck.next()">Iniciar Presentación (30 Min) →</button>
+              <button class="nav-btn" onclick="deck.goTo(7)">Ver Tomas Aéreas 🚁</button>
+            </div>
+          </div>
+
+          <div class="media-box" style="height: 480px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); border-color: var(--border-green);">
+            <img src="assets/estacionesdeservicio.jpeg" alt="Estación de Servicio Transformada" style="filter: brightness(0.95);">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(0deg, rgba(7,7,9,0.95) 0%, transparent 100%);">
+              <div style="font-family: var(--heading); font-weight: 800; font-size: 1.1rem; color: #fff;">Ecosistema Comercial Llave en Mano</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Arquitectura liviana, estructuración jurídica y geomarketing inteligente para EDS.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 2: QUIÉNES SOMOS & TRAYECTORIA ================= -->
+    <section class="slide" data-index="1" data-time="3" data-title="1. Quiénes Somos y Trayectoria">
+      <div class="slide-content-wrapper">
+        <div class="slide-badge">1. QUIÉNES SOMOS</div>
+        <h2 class="slide-title">Ingeniería Estructural Pesada adaptada a la <span class="highlight">Movilidad Comercial</span></h2>
+        <p class="slide-subtitle">
+          Nacimos con el rigor de las industrias más exigentes: diseño, cálculo y montaje de estructuras livianas e industriales para el sector cementero y petrolero.
+        </p>
+
+        <div class="grid-3" style="margin-bottom: 24px;">
+          <div class="card featured">
+            <div class="card-icon">🏗️</div>
+            <h3 class="card-title">ADN Petrolero & Cementero</h3>
+            <p class="card-desc">
+              Más de 15 años de experiencia ejecutando montajes bajo los estándares más estrictos de seguridad industrial, normatividad de hidrocarburos y resistencia estructural.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">Construcción en Seco & Modular</h3>
+            <p class="card-desc">
+              Fabricación off-site que garantiza cero escombros, montaje en 30 días y ninguna interrupción en la venta de combustible o flujo de vehículos.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🤝</div>
+            <h3 class="card-title">Alianza Interdisciplinaria 360°</h3>
+            <p class="card-desc">
+              Integramos construcción (Stop & Go), respaldo confederado de +3000 EDS (CABSAS), estructuración inmobiliaria (CGBI) e inteligencia de datos (SIKAI).
+            </p>
+          </div>
+        </div>
+
+        <div class="stat-hero-box" style="padding: 18px 24px;">
+          <div style="font-family: var(--mono); font-size: 2rem; font-weight: 900; color: var(--primary);">100%</div>
+          <div class="stat-hero-info">
+            <h4 style="font-size: 1.1rem; margin: 0;">Seguridad y Normatividad Garantizada</h4>
+            <p style="font-size: 0.85rem; margin: 0;">Módulos diseñados conforme a distancias de seguridad RETIE, NFPA y directrices del Ministerio de Minas y Energía.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 3: DIAGNÓSTICO DEL SECTOR EDS ================= -->
+    <section class="slide" data-index="2" data-time="4" data-title="2. Diagnóstico del Sector">
+      <div class="slide-content-wrapper">
+        <div class="slide-badge">2. DIAGNÓSTICO SECTORIAL</div>
+        <h2 class="slide-title">El 40% al 55% de las EDS tienen <span class="highlight">Metros Cuadrados Desaprovechados</span></h2>
+        <p class="slide-subtitle">
+          Según datos del sector y estudios de mercado (JBermúdez), más de la mitad de las estaciones de servicio en Bogotá y ciudades principales cuentan con lotes, islas o locales ociosos.
+        </p>
+
+        <div class="grid-2" style="gap: 32px; align-items: center;">
+          <div>
+            <div class="stat-hero-box" style="margin-bottom: 20px;">
+              <div class="stat-big-number">55%</div>
+              <div class="stat-hero-info">
+                <h4>Espacios Subutilizados en Bogotá</h4>
+                <p>Metros cuadrados en esquinas y vías arterias que hoy no generan un solo peso de renta y solo pagan impuesto predial.</p>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="card" style="padding: 16px;">
+                <div style="color: var(--accent); font-weight: 800; font-size: 1.1rem; margin-bottom: 4px;">✗ El Problema</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Dependencia exclusiva del margen del galonaje y costos fijos crecientes.</div>
+              </div>
+              <div class="card" style="padding: 16px;">
+                <div style="color: var(--primary); font-weight: 800; font-size: 1.1rem; margin-bottom: 4px;">✓ La Oportunidad</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Convertir el flujo de miles de vehículos diarios en ingresos por retail y servicios.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 24px; border-color: rgba(255,255,255,0.1);">
+            <h3 style="font-family: var(--heading); font-size: 1.2rem; color: #fff; margin-bottom: 16px;">El Cambio en el Negocio de las EDS</h3>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <div style="background: rgba(255,51,68,0.15); color: var(--accent); padding: 4px 8px; border-radius: 6px; font-weight: 800; font-size: 0.75rem;">ANTES</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Solo vender combustible. Cliente entra, tanquea 3 minutos y se va inmediatamente.</div>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <div style="background: rgba(57,255,20,0.15); color: var(--primary); padding: 4px 8px; border-radius: 6px; font-weight: 800; font-size: 0.75rem;">HOY</div>
+                <div style="font-size: 0.85rem; color: var(--text);">Hub de conveniencia y movilidad: café, comidas, farmacia, servicios y compra de paso.</div>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <div style="background: rgba(0,123,255,0.15); color: #38bdf8; padding: 4px 8px; border-radius: 6px; font-weight: 800; font-size: 0.75rem;">RESULTADO</div>
+                <div style="font-size: 0.85rem; color: #fff; font-weight: 600;">Mayor tiempo de permanencia, fidelización del conductor y renta fija recurrente.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 4: PROPUESTA DE AGREGACIÓN DE VALOR ================= -->
+    <section class="slide" data-index="3" data-time="4" data-title="2. Agregación de Valor Integral">
+      <div class="slide-content-wrapper">
+        <div class="slide-badge">2. PROPUESTA DE AGREGACIÓN DE VALOR</div>
+        <h2 class="slide-title">4 Pilares de Transformación para su <span class="highlight">Estación de Servicio</span></h2>
+        <p class="slide-subtitle">
+          No se trata solo de construir; es una renovación completa que eleva la plusvalía, la estética y la atracción comercial de su predio.
+        </p>
+
+        <div class="grid-4">
+          <div class="card featured">
+            <div class="card-icon">💰</div>
+            <div class="badge-tag badge-green" style="margin-bottom: 10px;">2.1 Renta Activa</div>
+            <h3 class="card-title" style="font-size: 1.1rem;">Monetización Inmediata</h3>
+            <p class="card-desc" style="font-size: 0.85rem;">
+              Transformación de áreas muertas (retiros, esquinas, bahías ociosas) en fuentes recurrentes de renta mensual o negocios de alto margen.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">✨</div>
+            <div class="badge-tag badge-blue" style="margin-bottom: 10px;">2.2 Paisajismo</div>
+            <h3 class="card-title" style="font-size: 1.1rem;">Impacto Arquitectónico</h3>
+            <p class="card-desc" style="font-size: 0.85rem;">
+              Diseños glassmorphic modernos, iluminación LED perimetral y paisajismo urbano que modernizan la imagen de toda la estación.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">👥</div>
+            <div class="badge-tag badge-purple" style="margin-bottom: 10px;">2.3 Comunidad</div>
+            <h3 class="card-title" style="font-size: 1.1rem;">Integración Vecinal</h3>
+            <p class="card-desc" style="font-size: 0.85rem;">
+              Creación de espacios amigables de encuentro, terrazas de café y zonas peatonales que capturan tanto a conductores como a vecinos del sector.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🏆</div>
+            <div class="badge-tag badge-green" style="margin-bottom: 10px;">2.4 Marca</div>
+            <h3 class="card-title" style="font-size: 1.1rem;">Sinergia Corporativa</h3>
+            <p class="card-desc" style="font-size: 0.85rem;">
+              Coexistencia armónica con la bandera mayorista (Terpel, Primax, Biomax, Chevron, Puma) sumando marcas de consumo de primer nivel.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Marcas Mayoristas Homologadas:</span>
+          <div style="display: flex; gap: 24px; align-items: center; opacity: 0.8;">
+            <span style="font-weight: 700; font-size: 0.85rem; color: #fff;">TERPEL</span>
+            <span style="font-weight: 700; font-size: 0.85rem; color: #fff;">PRIMAX</span>
+            <span style="font-weight: 700; font-size: 0.85rem; color: #fff;">BIOMAX</span>
+            <span style="font-weight: 700; font-size: 0.85rem; color: #fff;">CHEVRON</span>
+            <span style="font-weight: 700; font-size: 0.85rem; color: #fff;">PUMA</span>
+            <span style="font-weight: 700; font-size: 0.85rem; color: #fff;">PETROBRAS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 5: SISTEMAS MODULARES CONSTRUCTIVOS ================= -->
+    <section class="slide" data-index="4" data-time="4" data-title="3. Sistemas Modulares y Portafolio">
+      <div class="slide-content-wrapper">
+        <div class="slide-badge">3.1 SISTEMAS CONSTRUCTIVOS MODULARES</div>
+        <h2 class="slide-title">Infraestructura Liviana de <span class="highlight">Alto Rendimiento</span></h2>
+        <p class="slide-subtitle">
+          Estructuras 100% reubicables, de ensamble rápido en seco, con materiales termoacústicos y acabados de lujo diseñados para alto tráfico.
+        </p>
+
+        <div class="grid-4" style="margin-bottom: 24px;">
+          <!-- Modulo Compact -->
+          <div class="card" style="padding: 16px;">
+            <div class="media-box" style="height: 140px; margin-bottom: 12px; border-radius: 8px;">
+              <img src="assets/modulocompact.jpeg" alt="Módulo Compact">
+            </div>
+            <div class="badge-tag badge-green" style="margin-bottom: 6px;">15 - 25 m²</div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: #fff;">Módulo Compact</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Ideal para Café Express, Heladerías, Postres o Venta Rápida de Accesorios.</p>
+          </div>
+
+          <!-- Modulo Standard -->
+          <div class="card featured" style="padding: 16px;">
+            <div class="media-box" style="height: 140px; margin-bottom: 12px; border-radius: 8px;">
+              <img src="assets/modulostandart.jpeg" alt="Módulo Standard">
+            </div>
+            <div class="badge-tag badge-blue" style="margin-bottom: 6px;">30 - 50 m²</div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: #fff;">Módulo Standard</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Tiendas de Conveniencia, Droguerías, Pet Shops y Peluquerías Express.</p>
+          </div>
+
+          <!-- Modulo Premium -->
+          <div class="card" style="padding: 16px;">
+            <div class="media-box" style="height: 140px; margin-bottom: 12px; border-radius: 8px;">
+              <img src="assets/modulopremium.jpeg" alt="Módulo Premium">
+            </div>
+            <div class="badge-tag badge-purple" style="margin-bottom: 6px;">60 - 120 m²</div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: #fff;">Módulo Premium</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Restaurantes QSR, Comidas Rápidas con terraza exterior y Servicios Múltiples.</p>
+          </div>
+
+          <!-- Modulo Custom -->
+          <div class="card" style="padding: 16px;">
+            <div class="media-box" style="height: 140px; margin-bottom: 12px; border-radius: 8px;">
+              <img src="assets/retail.jpeg" alt="Módulo Custom">
+            </div>
+            <div class="badge-tag badge-green" style="margin-bottom: 6px;">A Medida</div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: #fff;">Módulo Custom</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Adaptado exactamente a la geometría de la estación y bahías de parqueo.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div style="display: flex; gap: 10px; align-items: center; font-size: 0.85rem; color: var(--text);">
+            <span style="color: var(--primary); font-size: 1.2rem;">⏱️</span> <strong>Montaje en 30 días promedio</strong> (vs 12 meses obra tradicional)
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center; font-size: 0.85rem; color: var(--text);">
+            <span style="color: var(--primary); font-size: 1.2rem;">🔄</span> <strong>100% Reubicable</strong> (Activo patrimonial desmontable)
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center; font-size: 0.85rem; color: var(--text);">
+            <span style="color: var(--primary); font-size: 1.2rem;">📉</span> <strong>60% Menor Capex</strong> comparado con obra de mampostería
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 6: NICHOS Y CATEGORÍAS COMERCIALES ================= -->
+    <section class="slide" data-index="5" data-time="3" data-title="3.1 Nichos Comerciales y Franquicias">
+      <div class="slide-content-wrapper">
+        <div class="slide-badge">OPORTUNIDADES DE MERCADO</div>
+        <h2 class="slide-title">¿Qué Negocios se adaptan a su <span class="highlight">Flujo Vehicular</span>?</h2>
+        <p class="slide-subtitle">
+          Formatos probados de alta rotación, compra por impulso y conveniencia inmediata que aprovechan la facilidad de parqueo de su EDS.
+        </p>
+
+        <div class="grid-4" style="gap: 16px;">
+          <div class="card" style="padding: 16px;">
+            <div class="media-box" style="height: 110px; margin-bottom: 10px; border-radius: 8px;">
+              <img src="assets/cafe express.jpeg" alt="Café Express">
+            </div>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #fff;">☕ Café & Panadería Express</h4>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">Captura el tráfico pendular matutino. Ticket rápido de 2 a 5 minutos.</p>
+          </div>
+
+          <div class="card" style="padding: 16px;">
+            <div class="media-box" style="height: 110px; margin-bottom: 10px; border-radius: 8px;">
+              <img src="assets/drogueria.jpeg" alt="Droguería">
+            </div>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #fff;">💊 Farmacia & Droguería</h4>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">Operación 24/7 y conveniencia médica en ruta con parqueo garantizado.</p>
+          </div>
+
+          <div class="card" style="padding: 16px;">
+            <div class="media-box" style="height: 110px; margin-bottom: 10px; border-radius: 8px;">
+              <img src="assets/comidas rapidas.jpeg" alt="Comidas Rápidas">
+            </div>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #fff;">🍔 QSR & Comidas Rápidas</h4>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">Hamburguesas, pizzas y snacks con terraza para mayor tiempo de permanencia.</p>
+          </div>
+
+          <div class="card" style="padding: 16px;">
+            <div class="media-box" style="height: 110px; margin-bottom: 10px; border-radius: 8px;">
+              <img src="assets/tienda para mascotas.jpeg" alt="Pet Shop">
+            </div>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #fff;">🐾 Pet Shop Express</h4>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">Alimentos y snacks para mascotas en el trayecto de regreso al hogar.</p>
+          </div>
+        </div>
+
+        <div class="grid-4" style="gap: 16px; margin-top: 16px;">
+          <div class="card" style="padding: 14px;">
+            <h4 style="font-size: 0.88rem; font-weight: 700; color: var(--primary);">💈 Barbería & Estética</h4>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Cortes ágiles para conductores mientras lavan o tanquean.</p>
+          </div>
+          <div class="card" style="padding: 14px;">
+            <h4 style="font-size: 0.88rem; font-weight: 700; color: var(--primary);">🍦 Helados & Postres</h4>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Compra por antojo en horas pico de la tarde y fines de semana.</p>
+          </div>
+          <div class="card" style="padding: 14px;">
+            <h4 style="font-size: 0.88rem; font-weight: 700; color: var(--primary);">📱 Tech & Accesorios</h4>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Cargadores, cables y gadgets esenciales para conductores.</p>
+          </div>
+          <div class="card" style="padding: 14px;">
+            <h4 style="font-size: 0.88rem; font-weight: 700; color: var(--primary);">⚡ Electrolineras & Hub</h4>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Micromovilidad y recarga de vehículos eléctricos de nueva generación.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 7: CASOS REALES Y MONTAJES EN EJECUCIÓN ================= -->
+    <section class="slide" data-index="6" data-time="3" data-title="3.2 Proyectos y Montajes en Marcha">
+      <div class="slide-content-wrapper">
+        <div class="slide-badge">3.2 REALIDAD EJECUTIVA</div>
+        <h2 class="slide-title">Estaciones donde ya estamos <span class="highlight">Construyendo el Futuro</span></h2>
+        <p class="slide-subtitle">
+          Proyectos en proceso de fabricación, montaje y adecuación comercial que demuestran la viabilidad técnica y rentabilidad inmediata del modelo.
+        </p>
+
+        <div class="grid-3" style="gap: 24px;">
+          <div class="card" style="padding: 16px;">
+            <div class="media-box" style="height: 220px; margin-bottom: 14px;">
+              <img src="assets/sobrenosotros.jpeg" alt="Montaje en Curso">
+              <div class="video-badge">📍 Bogotá Norte - En Ejecución</div>
+            </div>
+            <h4 style="font-family: var(--heading); font-size: 1.1rem; color: #fff; margin-bottom: 6px;">Módulo Comercial Doble</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Integración de Café Gourmet y Tienda de Conveniencia en franja perimetral de 75 m² sin tocar islas de bombeo.</p>
+          </div>
+
+          <div class="card featured" style="padding: 16px;">
+            <div class="media-box" style="height: 220px; margin-bottom: 14px;">
+              <img src="assets/estacionesdeservicio.jpeg" alt="Proyecto Integrado">
+              <div class="video-badge" style="border-color: #38bdf8; color: #38bdf8;">📍 Corredor Autopista - En Ensamble</div>
+            </div>
+            <h4 style="font-family: var(--heading); font-size: 1.1rem; color: #fff; margin-bottom: 6px;">Food Hub Express con Terraza</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Adecuación de zona verde en desuso convirtiéndola en locales modulares de comidas con mobiliario urbano exterior.</p>
+          </div>
+
+          <div class="card" style="padding: 16px;">
+            <div class="media-box" style="height: 220px; margin-bottom: 14px;">
+              <img src="assets/centroslogisticos.jpeg" alt="Hub de Servicios">
+              <div class="video-badge" style="border-color: #c084fc; color: #c084fc;">📍 Occidente - Estructuración</div>
+            </div>
+            <h4 style="font-family: var(--heading); font-size: 1.1rem; color: #fff; margin-bottom: 6px;">Punto Farmacia & Retail 24/7</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Módulo Standard de 45 m² con contrato a largo plazo firmado con franquicia de droguería nacional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 8: MUESTRA TÉCNICA CON TOMAS AÉREAS / DRONE ================= -->
+    <section class="slide" data-index="7" data-time="4" data-title="Muestra del Punto con Tomas Aéreas">
+      <div class="slide-content-wrapper">
+        <div class="slide-badge">EVALUACIÓN DEL PUNTO EN CAMPO</div>
+        <h2 class="slide-title">Muestra Integral del Punto con <span class="highlight">Tomas Aéreas</span></h2>
+        <p class="slide-subtitle">
+          Parte de nuestra propuesta comercial consiste en realizar la muestra y valoración del punto mediante tomas aéreas con Drones, evaluando directamente la visibilidad, los accesos viales y las condiciones de factibilidad y viabilidad de su estación.
+        </p>
+
+        <div class="grid-2" style="gap: 24px; align-items: stretch;">
+          <!-- Video 1 -->
+          <div class="card" style="padding: 16px; display: flex; flex-direction: column;">
+            <div class="media-box" style="height: 260px; margin-bottom: 14px; position: relative;">
+              <video controls preload="metadata" style="width: 100%; height: 100%; object-fit: cover;">
+                <source src="assets/video_drone_1.mp4" type="video/mp4">
+                Tu navegador no soporta reproducción de video local.
+              </video>
+              <div class="video-badge">🚁 Toma Aérea 1: Accesibilidad y Entorno</div>
+            </div>
+            <h4 style="font-family: var(--heading); font-size: 1.05rem; color: #fff; margin-bottom: 6px;">Perspectiva de Flujo y Radios de Giro</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Muestra visual de la accesibilidad vehicular, circulación interna, zonas de parqueo y ángulo de visión del conductor desde la vía principal.</p>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="card featured" style="padding: 16px; display: flex; flex-direction: column;">
+            <div class="media-box" style="height: 260px; margin-bottom: 14px; position: relative;">
+              <video controls preload="metadata" style="width: 100%; height: 100%; object-fit: cover;">
+                <source src="assets/video_drone_2.mp4" type="video/mp4">
+                Tu navegador no soporta reproducción de video local.
+              </video>
+              <div class="video-badge" style="border-color: #38bdf8; color: #38bdf8;">🚁 Toma Aérea 2: Levantamiento del Predio</div>
+            </div>
+            <h4 style="font-family: var(--heading); font-size: 1.05rem; color: #fff; margin-bottom: 6px;">Factibilidad y Viabilidad Espacial</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Inspección visual detallada del espacio disponible para validar distancias de seguridad y armonía paisajística con las islas de servicio.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 18px; background: rgba(57,255,20,0.06); border: 1px solid var(--border-green); border-radius: var(--radius-sm); padding: 12px 20px; display: flex; align-items: center; gap: 14px;">
+          <span style="font-size: 1.3rem;">🎯</span>
+          <span style="font-size: 0.85rem; color: #fff;"><strong>Propuesta de Valor Stop & Go:</strong> Realizamos una visita a la estación para hacer el levantamiento con tomas aéreas y determinar las condiciones reales de factibilidad y viabilidad del proyecto.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 9: MODALIDADES DE APROVECHAMIENTO ECONÓMICO ================= -->
+    <section class="slide" data-index="8" data-time="4" data-title="4. Modalidades de Negocio y Renta">
+      <div class="slide-content-wrapper">
+        <div class="slide-badge">4. MODELOS DE EXPLOTACIÓN ECONÓMICA</div>
+        <h2 class="slide-title">Elija el Esquema Financiero a la <span class="highlight">Medida de su EDS</span></h2>
+        <p class="slide-subtitle">
+          Flexibilidad absoluta: desde un ingreso 100% pasivo sin invertir un solo peso, hasta la propiedad patrimonial del módulo o la operación de un negocio propio.
+        </p>
+
+        <div class="grid-3" style="gap: 24px; margin-bottom: 24px;">
+          <!-- Modelo 1: Arriendo del Espacio -->
+          <div class="card featured">
+            <div class="badge-tag badge-green" style="margin-bottom: 12px;">MODELO A: MÁS POPULAR</div>
+            <h3 class="card-title" style="font-size: 1.25rem;">4.1 Arriendo del Espacio</h3>
+            <div style="font-family: var(--mono); font-size: 1.6rem; font-weight: 800; color: var(--primary); margin: 8px 0;">Cero Inversión</div>
+            <p class="card-desc" style="font-size: 0.85rem; margin-bottom: 16px;">
+              Usted arrienda el área disponible. La alianza y la franquicia colocan el módulo, realizan la inversión y pagan un canon mensual fijo garantizado.
+            </p>
+            <ul style="font-size: 0.8rem; color: var(--text-muted); list-style: none; display: flex; flex-direction: column; gap: 6px;">
+              <li>✓ Riesgo financiero: Cero (0)</li>
+              <li>✓ Renta recurrente desde el día 30</li>
+              <li>✓ Contrato a largo plazo garantizado</li>
+            </ul>
+          </div>
+
+          <!-- Modelo 2: Compra del Módulo -->
+          <div class="card">
+            <div class="badge-tag badge-blue" style="margin-bottom: 12px;">MODELO B: PATRIMONIAL</div>
+            <h3 class="card-title" style="font-size: 1.25rem;">4.2 Compra del Módulo</h3>
+            <div style="font-family: var(--mono); font-size: 1.6rem; font-weight: 800; color: #38bdf8; margin: 8px 0;">Activo Rentable</div>
+            <p class="card-desc" style="font-size: 0.85rem; margin-bottom: 16px;">
+              La EDS adquiere la estructura modular prefabricada. Nosotros le entregamos el franquiciado colocado y listo, maximizando el canon mensual recibido.
+            </p>
+            <ul style="font-size: 0.8rem; color: var(--text-muted); list-style: none; display: flex; flex-direction: column; gap: 6px;">
+              <li>✓ Retorno de inversión (ROI) < 18 meses</li>
+              <li>✓ Mayor canon al ser dueño del local</li>
+              <li>✓ Estructura 100% depreciable y reubicable</li>
+            </ul>
+          </div>
+
+          <!-- Modelo 3: Negocio Propio -->
+          <div class="card">
+            <div class="badge-tag badge-purple" style="margin-bottom: 12px;">MODELO C: ALTO MARGEN</div>
+            <h3 class="card-title" style="font-size: 1.25rem;">4.3 Explotación Propia</h3>
+            <div style="font-family: var(--mono); font-size: 1.6rem; font-weight: 800; color: #c084fc; margin: 8px 0;">Máxima Utilidad</div>
+            <p class="card-desc" style="font-size: 0.85rem; margin-bottom: 16px;">
+              Usted adquiere el módulo y opera directamente una franquicia o negocio propio (ej. café, minimarket, llantería express) con nuestro acompañamiento 360°.
+            </p>
+            <ul style="font-size: 0.8rem; color: var(--text-muted); list-style: none; display: flex; flex-direction: column; gap: 6px;">
+              <li>✓ 100% de la utilidad operativa para la EDS</li>
+              <li>✓ Sinergia total con la venta de combustible</li>
+              <li>✓ Acceso a manuales de franquicia y know-how</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Mini Calculadora interactiva -->
+        <div class="calc-card" style="padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+          <div>
+            <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">Estimador de Renta Mensual Adicional</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Calcule el ingreso estimado según el área disponible de su estación:</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; min-width: 320px;">
+            <input type="range" min="20" max="100" value="40" step="10" class="calc-slider" id="areaSlider" oninput="updateEstimate(this.value)">
+            <span style="font-family: var(--mono); font-size: 0.9rem; color: var(--primary); min-width: 70px;" id="areaVal">40 m²</span>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Ingreso Estimado / Mes:</div>
+            <div style="font-family: var(--mono); font-size: 1.3rem; font-weight: 900; color: var(--primary);" id="calcResult">$4.800.000 COP</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 10: ALIANZA 360 Y ROLES ================= -->
+    <section class="slide" data-index="9" data-time="3" data-title="5. Alianza Estratégica 360°">
+      <div class="slide-content-wrapper">
+        <div class="slide-badge">5. CÓMO LO HACEMOS Y QUIÉNES SOMOS</div>
+        <h2 class="slide-title">Ecosistema Integral de Acompañamiento <span class="highlight">Llave en Mano</span></h2>
+        <p class="slide-subtitle">
+          Una alianza estratégica donde cada entidad aporta su máxima especialidad para blindar su inversión y garantizar el éxito comercial de la estación.
+        </p>
+
+        <div class="grid-4" style="gap: 20px;">
+          <!-- Stop & Go -->
+          <div class="card featured">
+            <div style="height: 44px; margin-bottom: 12px; display: flex; align-items: center;">
+              <img src="assets/logostop_go.png" alt="Stop & Go" style="height: 38px; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 6px;">Stop & Go Station</h4>
+            <div class="badge-tag badge-green" style="margin-bottom: 10px;">Ingeniería & Paisajismo</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+              Diseño arquitectónico, fabricación industrial, ensamble exprés en 30 días, paisajismo urbano y muestra del punto con tomas aéreas.
+            </p>
+          </div>
+
+          <!-- CABSAS -->
+          <div class="card">
+            <div style="height: 44px; margin-bottom: 12px; display: flex; align-items: center;">
+              <img src="assets/cab-logo.png" alt="CABSAS" style="height: 36px; object-fit: contain; filter: brightness(1.2);">
+            </div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 6px;">CABSAS</h4>
+            <div class="badge-tag badge-blue" style="margin-bottom: 10px;">Respaldo Gremial</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+              Red confederada de más de 3,000 estaciones de servicio a nivel nacional. Respaldo institucional, garantía jurídica y arriendo unificado.
+            </p>
+          </div>
+
+          <!-- CGBI con cápsula de luz blanca -->
+          <div class="card">
+            <div style="height: 44px; margin-bottom: 12px; display: flex; align-items: center;">
+              <div class="cgbi-logo-glow" style="height: 36px; padding: 4px 10px;">
+                <img src="assets/cgbi-logo.png" alt="CGBI">
+              </div>
+            </div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 6px;">CGBI Inmobiliaria</h4>
+            <div class="badge-tag badge-purple" style="margin-bottom: 10px;">Estructuración Jurídica</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+              Gestión comercial e inmobiliaria integral: formalización de contratos de arrendamiento, pólizas de cumplimiento, administración y trámites.
+            </p>
+          </div>
+
+          <!-- SIKAI Consulting -->
+          <div class="card">
+            <div style="height: 44px; margin-bottom: 12px; display: flex; align-items: center;">
+              <img src="assets/sikai-logo.png" alt="SIKAI Consulting" style="height: 28px; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 6px;">SIKAI Consulting</h4>
+            <div class="badge-tag badge-green" style="margin-bottom: 10px;">Inteligencia de Datos</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+              Geomarketing avanzado, conteo de tráfico vehicular relativo por IA, radiometría de influencia (150m y 300m) y match de afinidad comercial.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 20px; display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 0.85rem; color: var(--text);">Acceso directo a las franquicias más importantes en la <strong>Feria Internacional FANYF 2026</strong> en Corferias.</span>
+          <span class="badge-tag badge-green">FANYF 2026 Partner</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 11: RUTA DE IMPLEMENTACIÓN ================= -->
+    <section class="slide" data-index="10" data-time="3" data-title="6. ¿Qué Necesitamos para Iniciar?">
+      <div class="slide-content-wrapper">
+        <div class="slide-badge">6. RUTA DE ACTIVACIÓN RÁPIDA</div>
+        <h2 class="slide-title">5 Pasos Sencillos para Activar su <span class="highlight">Nueva Renta</span></h2>
+        <p class="slide-subtitle">
+          Nosotros nos encargamos del 100% de la gestión técnica, comercial, jurídica y de obra.
+        </p>
+
+        <div class="grid-5" style="gap: 16px; margin-bottom: 28px;">
+          <div class="card" style="padding: 18px 14px; text-align: center;">
+            <div style="font-family: var(--heading); font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 8px;">01</div>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 6px;">Voluntad & Cita</h4>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Su interés de valorizar el predio y agendar la visita inicial a la estación.</p>
+          </div>
+
+          <div class="card featured" style="padding: 18px 14px; text-align: center;">
+            <div style="font-family: var(--heading); font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 8px;">02</div>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 6px;">Visita & Tomas</h4>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Visita en la estación, tomas aéreas y determinación de condiciones de factibilidad y viabilidad.</p>
+          </div>
+
+          <div class="card" style="padding: 18px 14px; text-align: center;">
+            <div style="font-family: var(--heading); font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 8px;">03</div>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 6px;">Modelo Comercial</h4>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Definición del esquema adoptado: Arriendo del espacio, Compra o Negocio propio.</p>
+          </div>
+
+          <div class="card" style="padding: 18px 14px; text-align: center;">
+            <div style="font-family: var(--heading); font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 8px;">04</div>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 6px;">Match Franquicia</h4>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Presentación de la marca idónea según el estudio de mercado del sector y hábitos de consumo.</p>
+          </div>
+
+          <div class="card featured" style="padding: 18px 14px; text-align: center;">
+            <div style="font-family: var(--heading); font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 8px;">05</div>
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 6px;">Formalización Jurídica</h4>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Formalización jurídica de acuerdos contractuales con CGBI y montaje en 30 días.</p>
+          </div>
+        </div>
+
+        <div class="stat-hero-box" style="padding: 16px 24px; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="font-size: 1.8rem;">🚀</span>
+            <div>
+              <div style="font-weight: 800; color: #fff; font-size: 1rem;">Tiempo Total Estimado de Activación:</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Desde la visita inicial hasta el primer día de cobro de canon de arrendamiento: <strong>45 días calendario.</strong></div>
+            </div>
+          </div>
+          <button class="nav-btn primary" onclick="deck.goTo(11)">Agendar Visita de Factibilidad →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 12: CIERRE Y LLAMADO A LA ACCIÓN ================= -->
+    <section class="slide" data-index="11" data-time="2" data-title="Cierre y Preguntas (Q&A)">
+      <div class="slide-content-wrapper">
+        <div class="grid-2" style="align-items: center; gap: 48px;">
+          <div>
+            <!-- Badges Co-branded con Fedispetrol -->
+            <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 100px; margin-bottom: 14px;">
+              <img src="assets/client_logo.jpg" alt="FEDISPETROL" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover; background: #fff;">
+              <span style="font-size: 0.75rem; color: #fff; font-weight: 700;">ALIANZA ESTRATÉGICA & FEDISPETROL</span>
+            </div>
+
+            <h2 class="slide-title">Hagamos que cada Metro Cuadrado de su EDS <span class="highlight">Produzca Dinero</span></h2>
+            <p class="slide-subtitle">
+              Agendemos la visita a sus estaciones de servicio para evaluar las condiciones de factibilidad técnica y viabilidad espacial.
+            </p>
+
+            <div class="card featured" style="margin-bottom: 24px; padding: 20px;">
+              <h4 style="font-family: var(--heading); font-size: 1.1rem; color: #fff; margin-bottom: 12px;">Lo que incluye la Visita de Factibilidad Técnica:</h4>
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; color: var(--text-muted);">
+                <div>✓ Inspección y muestra del punto con tomas aéreas</div>
+                <div>✓ Evaluación de distancias de seguridad y viabilidad espacial</div>
+                <div>✓ Análisis de flujos de tránsito y perfil del entorno comercial</div>
+                <div>✓ Propuesta económica según el modelo elegido (arriendo, compra o propio)</div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                <a href="mailto:gerencia@stopandgo.com.co" class="nav-btn primary">📧 gerencia@stopandgo.com.co</a>
+                <a href="mailto:comercial@cgbi.com.co" class="nav-btn" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2);">📧 comercial@cgbi.com.co</a>
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
+                🌐 <a href="https://stopandgo.com.co" target="_blank" style="color: var(--primary); text-decoration: none;">stopandgo.com.co</a> | Alianza Stop & Go · CABSAS · CGBI · SIKAI
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 28px; text-align: center; border-color: var(--border-green);">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(57,255,20,0.1); border: 2px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 16px auto;">
+              💬
+            </div>
+            <h3 style="font-family: var(--heading); font-size: 1.6rem; color: #fff; margin-bottom: 8px;">Espacio de Preguntas & Respuestas</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+              Estamos a su entera disposición para resolver cualquier duda técnica, jurídica o financiera.
+            </p>
+            <div style="background: rgba(255,255,255,0.03); border-radius: var(--radius-sm); padding: 14px; text-align: left; font-size: 0.8rem; color: var(--text-muted);">
+              <strong>Preguntas Frecuentes habituales:</strong>
+              <ul style="margin-top: 6px; padding-left: 16px; display: flex; flex-direction: column; gap: 4px;">
+                <li>¿Se requiere licencia de construcción tradicional? (No, obra seca liviana)</li>
+                <li>¿Afecta el suministro eléctrico de la EDS? (Tablero independiente con medidor)</li>
+                <li>¿Qué garantía de pago de canon existe? (Póliza de arrendamiento con CGBI)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Speaker Notes Drawer -->
+  <aside class="notes-panel" id="notesPanel">
+    <div class="notes-title">
+      <span>GUÍA DEL EXPOSITOR (30 MIN)</span>
+      <button style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:1.2rem;" onclick="toggleNotes()">✕</button>
+    </div>
+    <div id="notesDynamicContent">
+      <!-- Injected via JavaScript based on current slide -->
+    </div>
+  </aside>
+
+  <!-- Overview Modal -->
+  <div class="overview-modal" id="overviewModal">
+    <div style="max-width: 1400px; margin: 0 auto 24px auto; display: flex; justify-content: space-between; align-items: center;">
+      <h3 style="font-family: var(--heading); font-size: 1.5rem; color: #fff;">Mapa de Diapositivas (12 Secciones)</h3>
+      <button class="ctrl-btn" onclick="toggleGrid()">✕</button>
+    </div>
+    <div class="overview-grid" id="overviewGrid">
+      <!-- Injected dynamically -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="deck-footer">
+    <div class="slide-counter" id="slideCounter">01 / 12</div>
+    
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="deck.prev()">← Anterior</button>
+      <button class="nav-btn primary" onclick="deck.next()">Siguiente →</button>
+    </div>
+  </footer>
+
+  <!-- Script logic -->
+  <script>
+    const speakerNotes = [
+      {
+        slide: 1,
+        title: "Portada e Introducción · Presentación para FEDISPETROL",
+        allocatedTime: "2 minutos",
+        speech: "Muy buenos días a todos los miembros, directivos y propietarios de estaciones de servicio afiliados a FEDISPETROL. Para nuestra alianza —conformada por Stop & Go, CABSAS, CGBI y SIKAI Consulting— es un honor presentarles esta propuesta pensada a la medida de la red de FEDISPETROL. El objetivo de hoy es concreto: mostrarles cómo transformar aquellos metros cuadrados libres o subutilizados de sus estaciones en una fuente directa de renta fija mensual o en negocios propios de alto margen, sin interrumpir la venta de combustible y en un tiempo promedio de montaje de 30 días.",
+        keyPoints: [
+          "Saludar cordialmente a FEDISPETROL reconociendo sus 70 años de trayectoria.",
+          "Plantear la promesa de valor: Renta garantizada + Modernización de imagen de sus EDS.",
+          "Resaltar que la presentación tomará máximo 25 minutos para dejar 5 de preguntas."
+        ]
+      },
+      {
+        slide: 2,
+        title: "1. Quiénes Somos y Trayectoria",
+        allocatedTime: "3 minutos",
+        speech: "Para nosotros la seguridad y la ingeniería son prioritarias. Nuestra experiencia en Stop & Go proviene del diseño, cálculo y montaje de estructuras livianas e industriales para sectores de altísima exigencia técnica como el cementero y el petrolero. Sabemos exactamente lo que significa trabajar en un entorno de hidrocarburos: distancias de seguridad, normas RETIE, cero afectación a las islas de bombeo. Unimos esa fuerza constructiva con CABSAS, que reúne más de 3,000 estaciones confederadas en el país, CGBI en la estructuración inmobiliaria y SIKAI Consulting en inteligencia de datos.",
+        keyPoints: [
+          "Resaltar el ADN petrolero y cementero (seguridad industrial absoluta).",
+          "Mencionar la tranquilidad técnica para la EDS: cumplimos todas las normas del MinMinas.",
+          "Enfatizar el respaldo gremial de CABSAS."
+        ]
+      },
+      {
+        slide: 3,
+        title: "2. Diagnóstico del Sector",
+        allocatedTime: "4 minutos",
+        speech: "Miremos las cifras del mercado. En Bogotá y las principales ciudades del país, según los análisis del sector y estadísticas de JBermúdez, entre el 40% y el 55% de las estaciones de servicio tienen espacios ociosos, retiros sin uso, franjas verdes que solo generan gasto o locales vacíos. Mientras tanto, el negocio de las EDS está evolucionando: depender únicamente del margen de los combustibles es un reto constante; las estaciones de éxito hoy son destinos de conveniencia donde el conductor gasta en café, comidas, farmacia o compras rápidas.",
+        keyPoints: [
+          "Mencionar el dato duro: 40% a 55% de EDS con metros cuadrados ociosos.",
+          "Citar las estadísticas de Bogotá / JBermúdez para dar credibilidad sectorial.",
+          "Explicar la transición de 'punto de tanqueo' a 'hub comercial de conveniencia'."
+        ]
+      },
+      {
+        slide: 4,
+        title: "2. Agregación de Valor Integral",
+        allocatedTime: "4 minutos",
+        speech: "Nuestra propuesta de valor para su estación se fundamenta en 4 pilares: 1) Renta Activa mensual para la estación; 2) Transformación arquitectónica y paisajística moderna con diseño glassmorphic e iluminación perimetral; 3) Integración vecinal y comunitaria: creamos espacios amigables donde el vecino del sector entra a tomar un café o comprar en la farmacia; y 4) Coexistencia corporativa ordenada con la bandera mayorista (Terpel, Primax, Biomax, Chevron, Puma), integrando marcas de consumo de fuerte presencia.",
+        keyPoints: [
+          "Detallar los 4 pilares: Renta, Paisajismo, Integración Social y Marca.",
+          "Aclarar que no riñe con las marcas mayoristas, al contrario, potencia el tráfico.",
+          "Mostrar cómo el conductor percibe una estación más moderna, limpia y atractiva."
+        ]
+      },
+      {
+        slide: 5,
+        title: "3. Sistemas Modulares y Portafolio",
+        allocatedTime: "4 minutos",
+        speech: "Aquí ven la solución física: estructuras modulares de alta ingeniería. Disponemos de formatos Compact (15-25 m²), Standard (30-50 m²), Premium (60-120 m² con terraza) y Custom a la medida de su predio. Se fabrican off-site y se ensamblan en seco en 30 días promedio. No hay obras civiles engorrosas de 6 a 12 meses, no se interrumpe la operación de combustible y son 100% reubicables, lo que significa que el activo físico se preserva.",
+        keyPoints: [
+          "Presentar los formatos: Compact, Standard, Premium, Custom.",
+          "Hacer énfasis en los 30 días de instalación en seco.",
+          "Destacar que es un activo 100% desmontable y reubicable."
+        ]
+      },
+      {
+        slide: 6,
+        title: "3.1 Nichos Comerciales y Franquicias",
+        allocatedTime: "3 minutos",
+        speech: "¿Qué tipo de negocios ubicamos en estos módulos? Cafés y repostería gourmet para captar el flujo matutino; farmacias y droguerías con atención 24/7 aprovechando la facilidad de parqueo; comidas rápidas en formato QSR con terrazas; pet shops; barberías express y puntos de accesorios tecnológicos. Gracias a nuestro estudio de geomarketing, determinamos exactamente cuál es el negocio con mayor compatibilidad según el flujo vehicular de la zona.",
+        keyPoints: [
+          "Repasar categorías: Café, Droguería, QSR, Mascotas, Barbería.",
+          "Explicar que la franquicia se escoge con datos reales de la zona.",
+          "El cliente valora la rapidez y la facilidad de parquear gratis 15 minutos."
+        ]
+      },
+      {
+        slide: 7,
+        title: "3.2 Proyectos y Montajes en Marcha",
+        allocatedTime: "3 minutos",
+        speech: "Esto es una realidad en marcha: en esta diapositiva pueden observar estaciones en Bogotá y corredores viales donde ya se adelantan procesos de montaje y adecuación comercial. Desde módulos para café y droguería en el norte, hasta adecuaciones de terrazas en autopistas y puntos de conveniencia en occidente.",
+        keyPoints: [
+          "Mostrar proyectos reales y avances de obra.",
+          "Transmitir que es una realidad tangible y probada en el mercado.",
+          "Infundir confianza y sentido de oportunidad."
+        ]
+      },
+      {
+        slide: 8,
+        title: "Muestra del Punto con Tomas Aéreas",
+        allocatedTime: "4 minutos",
+        speech: "Como parte de nuestra propuesta comercial y técnica, realizamos la muestra del punto con tomas aéreas y drones profesionales como los que ven en pantalla. Esto nos permite evaluar en detalle los accesos viales, los radios de giro vehicular, la visibilidad desde la vía principal y verificar las condiciones de factibilidad y viabilidad espacial de su estación antes de iniciar la instalación.",
+        keyPoints: [
+          "Reproducir o señalar los dos videos aéreos de la pantalla.",
+          "Explicar que las tomas aéreas permiten valorar el punto y sus accesos.",
+          "Aclarar que en la visita técnica determinamos la factibilidad y viabilidad real del predio."
+        ]
+      },
+      {
+        slide: 9,
+        title: "4. Modelos de Negocio y Renta",
+        allocatedTime: "4 minutos",
+        speech: "Ofrecemos tres modalidades de aprovechamiento financiero para que ustedes elijan la más conveniente: Modelo A (Arriendo del Espacio): Cero inversión de la EDS; la alianza y la franquicia colocan el módulo y ustedes reciben un canon mensual fijo. Modelo B (Compra del Módulo): La EDS adquiere el módulo y percibe un canon mayor con un ROI inferior a 18 meses. Modelo C (Negocio Propio): La EDS adquiere el módulo y opera directamente una franquicia o negocio propio con nuestro acompañamiento 360°.",
+        keyPoints: [
+          "Presentar con claridad los 3 esquemas: Arriendo, Compra, Operación Propia.",
+          "Interactuar con el estimador de renta en pantalla.",
+          "Subrayar que el Modelo A es de riesgo financiero cero para la EDS."
+        ]
+      },
+      {
+        slide: 10,
+        title: "5. Alianza Estratégica 360°",
+        allocatedTime: "3 minutos",
+        speech: "Detrás de este proyecto está un ecosistema 360°: Stop & Go en el diseño constructivo, fabricación y montaje exprés; CABSAS con el respaldo confederado de más de 3,000 EDS y garantía de arriendo unificado; CGBI en la gestión comercial e inmobiliaria, formalización de contratos y aseguramiento jurídico; y SIKAI Consulting analizando los flujos de tránsito y viabilidad de mercado. Además, contamos con acceso a las franquicias de la Feria Internacional FANYF 2026.",
+        keyPoints: [
+          "Alinear el rol de cada aliado: Stop & Go, CABSAS, CGBI, SIKAI.",
+          "Mencionar la garantía de pago (pólizas de arrendamiento manejadas por CGBI).",
+          "Destacar el acceso a franquicias de FANYF 2026."
+        ]
+      },
+      {
+        slide: 11,
+        title: "6. ¿Qué Necesitamos para Iniciar?",
+        allocatedTime: "3 minutos",
+        speech: "El proceso para empezar consta de 5 pasos claros: 1) Su voluntad e interés de valorizar el predio; 2) Visita a la estación con tomas aéreas para determinar factibilidad y viabilidad; 3) Determinación del modelo que adopta la estación (arriendo, compra o propio); 4) Presentación de la franquicia según estudio de mercado y hábitos de consumo; y 5) Formalización jurídica de los acuerdos con CGBI y montaje en 30 días.",
+        keyPoints: [
+          "Recorrer los 5 pasos de forma clara y sin fricciones.",
+          "Destacar el plazo total de 45 días desde la visita hasta la apertura.",
+          "El propietario no tiene que hacer trámites complejos; la alianza gestiona todo."
+        ]
+      },
+      {
+        slide: 12,
+        title: "Cierre y Preguntas (Q&A)",
+        allocatedTime: "2 minutos",
+        speech: "En conclusión: FEDISPETROL cuenta con estaciones estratégicas y un flujo cautivo diario de miles de vehículos; nosotros tenemos los módulos, la ingeniería, las franquicias y el respaldo legal para monetizar esos metros disponibles. El siguiente paso es agendar la visita a sus estaciones para evaluar las condiciones de factibilidad técnica. Pueden contactarnos a gerencia@stopandgo.com.co o a comercial@cgbi.com.co. Muchas gracias y abrimos el espacio para sus preguntas.",
+        keyPoints: [
+          "Cerrar con llamado a la acción directo para FEDISPETROL: agendar las visitas de factibilidad.",
+          "Mencionar los canales de contacto directos: gerencia@stopandgo.com.co y comercial@cgbi.com.co.",
+          "Abrir el espacio de preguntas y respuestas."
+        ]
+      }
+    ];
+
+    class SlideDeck {
+      constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.currentIndex = 0;
+        this.totalSlides = this.slides.length;
+        this.isNotesOpen = false;
+        this.isGridOpen = false;
+        
+        // Timer variables
+        this.timerSeconds = 30 * 60; // 30 minutes
+        this.timerInterval = null;
+        this.isTimerRunning = false;
+
+        this.init();
+      }
+
+      init() {
+        this.updateSlide(0);
+        this.buildOverviewGrid();
+        this.setupKeyboard();
+        this.setupTimer();
+      }
+
+      updateSlide(index) {
+        if (index < 0) index = 0;
+        if (index >= this.totalSlides) index = this.totalSlides - 1;
+
+        this.slides.forEach((s, idx) => {
+          if (idx === index) {
+            s.classList.add('active');
+          } else {
+            s.classList.remove('active');
+          }
+        });
+
+        this.currentIndex = index;
+        
+        // Update Counter & Progress
+        const currentFormatted = String(index + 1).padStart(2, '0');
+        const totalFormatted = String(this.totalSlides).padStart(2, '0');
+        document.getElementById('slideCounter').textContent = `${currentFormatted} / ${totalFormatted}`;
+        
+        const progressPct = ((index) / (this.totalSlides - 1)) * 100;
+        document.getElementById('progressFill').style.width = `${progressPct}%`;
+
+        // Update Speaker Notes
+        this.updateSpeakerNotes(index);
+
+        // Update Overview current card
+        document.querySelectorAll('.overview-card').forEach((c, idx) => {
+          if (idx === index) c.classList.add('current');
+          else c.classList.remove('current');
+        });
+      }
+
+      next() {
+        if (this.currentIndex < this.totalSlides - 1) {
+          this.updateSlide(this.currentIndex + 1);
+        }
+      }
+
+      prev() {
+        if (this.currentIndex > 0) {
+          this.updateSlide(this.currentIndex - 1);
+        }
+      }
+
+      goTo(index) {
+        this.updateSlide(index);
+        if (this.isGridOpen) this.toggleGrid();
+      }
+
+      updateSpeakerNotes(index) {
+        const note = speakerNotes[index] || {
+          title: "Diapositiva",
+          allocatedTime: "2 min",
+          speech: "Contenido de apoyo...",
+          keyPoints: []
+        };
+
+        const container = document.getElementById('notesDynamicContent');
+        container.innerHTML = `
+          <div class="notes-section">
+            <div class="notes-section-title">Diapositiva ${note.slide} | Tiempo Sugerido: <span style="color:var(--primary);">${note.allocatedTime}</span></div>
+            <h4 style="font-size:1.1rem; color:#fff; font-weight:800; margin-bottom:8px;">${note.title}</h4>
+          </div>
+
+          <div class="notes-section">
+            <div class="notes-section-title">Guión / Qué decir al auditorio:</div>
+            <p class="notes-text" style="font-style: italic; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; border: 1px solid var(--border);">
+              "${note.speech}"
+            </p>
+          </div>
+
+          <div class="notes-section">
+            <div class="notes-section-title">Puntos Clave a Destacar:</div>
+            ${note.keyPoints.map(p => `<div class="notes-keypoint">${p}</div>`).join('')}
+          </div>
+        `;
+      }
+
+      buildOverviewGrid() {
+        const grid = document.getElementById('overviewGrid');
+        grid.innerHTML = '';
+        this.slides.forEach((s, idx) => {
+          const title = s.dataset.title || `Diapositiva ${idx + 1}`;
+          const time = s.dataset.time || '2';
+          const card = document.createElement('div');
+          card.className = `overview-card ${idx === 0 ? 'current' : ''}`;
+          card.onclick = () => this.goTo(idx);
+          card.innerHTML = `
+            <div class="overview-card-num">SLIDE ${String(idx + 1).padStart(2, '0')} · ${time} MIN</div>
+            <div class="overview-card-title">${title}</div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+
+      setupKeyboard() {
+        window.addEventListener('keydown', (e) => {
+          if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+          if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+            e.preventDefault();
+            this.next();
+          } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            e.preventDefault();
+            this.prev();
+          } else if (e.key === 'n' || e.key === 'N') {
+            toggleNotes();
+          } else if (e.key === 'g' || e.key === 'G') {
+            toggleGrid();
+          } else if (e.key === 'f' || e.key === 'F') {
+            toggleFullScreen();
+          } else if (e.key === 'Escape') {
+            if (this.isGridOpen) toggleGrid();
+            if (this.isNotesOpen) toggleNotes();
+          }
+        });
+      }
+
+      setupTimer() {
+        const timerBtn = document.getElementById('timerBtn');
+        timerBtn.onclick = () => {
+          if (this.isTimerRunning) {
+            this.pauseTimer();
+          } else {
+            this.startTimer();
+          }
+        };
+      }
+
+      startTimer() {
+        if (this.isTimerRunning) return;
+        this.isTimerRunning = true;
+        document.getElementById('timerBtn').style.borderColor = 'var(--primary)';
+        this.timerInterval = setInterval(() => {
+          if (this.timerSeconds > 0) {
+            this.timerSeconds--;
+            const m = Math.floor(this.timerSeconds / 60);
+            const s = this.timerSeconds % 60;
+            document.getElementById('timerDisplay').textContent = 
+              `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+          } else {
+            clearInterval(this.timerInterval);
+            document.getElementById('timerDisplay').textContent = "00:00 ¡Fin!";
+            document.getElementById('timerBtn').style.borderColor = "var(--accent)";
+          }
+        }, 1000);
+      }
+
+      pauseTimer() {
+        this.isTimerRunning = false;
+        clearInterval(this.timerInterval);
+        document.getElementById('timerBtn').style.borderColor = "var(--border)";
+      }
+    }
+
+    const deck = new SlideDeck();
+
+    function toggleNotes() {
+      const panel = document.getElementById('notesPanel');
+      const btn = document.getElementById('notesToggleBtn');
+      panel.classList.toggle('open');
+      btn.classList.toggle('active');
+    }
+
+    function toggleGrid() {
+      const modal = document.getElementById('overviewModal');
+      const btn = document.getElementById('gridToggleBtn');
+      modal.classList.toggle('open');
+      btn.classList.toggle('active');
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => console.log(err));
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    document.getElementById('notesToggleBtn').onclick = toggleNotes;
+    document.getElementById('gridToggleBtn').onclick = toggleGrid;
+    document.getElementById('fullscreenBtn').onclick = toggleFullScreen;
+
+    function updateEstimate(sqm) {
+      document.getElementById('areaVal').textContent = `${sqm} m²`;
+      // Calculation: Approx 120,000 COP per sqm monthly rent
+      const rent = sqm * 120000;
+      const formatted = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(rent);
+      document.getElementById('calcResult').textContent = formatted;
+    }
+  </script>
+</body>
+</html>
