@@ -16,10 +16,24 @@
 
 ---
 
-## 📬 Canales Oficiales de Contacto
+## 📬 Canales Oficiales y Directorio de la Alianza (Foto-Ready)
+
+### 📱 Líneas Telefónicas y WhatsApp Directos:
+- **Camila Gutiérrez** (Comercial / Consecución de Marcas · CGBI): `310 415 3890`
+- **Carlos Chavarro** (Ingeniería y Construcción Modular · Stop & Go): `313 490 1222`
+- **Jorge Bermúdez** (Gremial y Gestión Normativa · CABSAS): `310 577 6556`
+- **Maykol Sicard** (Analítica de Datos y Estructuración · SIKAI): `321 261 4848`
+
+### ✉️ Correos Electrónicos Oficiales:
+- **SIKAI Consulting:** `maykol.sicard@sikaiconsulting.com`
 - **Stop & Go Station:** `gerencia@stopandgo.com.co`
-- **CGBI Inmobiliaria (Consecución de Marcas y Comercialización):** `comercial@cgbi.com.co`
-- **Sitio Web Oficial:** `stopandgo.com.co`
+- **CGBI Inmobiliaria:** `comercial@cgbi.com.co`
+
+### 🌐 Portales Web Oficiales:
+- **SIKAI Consulting:** [sikaiconsulting.com](https://sikaiconsulting.com)
+- **CGBI Inmobiliaria:** [cgbi.com.co](https://cgbi.com.co)
+- **CABSAS:** [cabsas.co](https://cabsas.co)
+- **Stop & Go Station:** [stopandgo.com.co](https://stopandgo.com.co)
 
 ---
 
