@@ -7,19 +7,19 @@
   <link rel="icon" type="image/png" href="assets/logostop_go.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --primary: #16a34a;
-      --primary-dark: #15803d;
+      --primary: #15803d;
+      --primary-dark: #166534;
       --primary-light: #dcfce7;
-      --primary-glow: rgba(22, 163, 74, 0.25);
+      --primary-glow: rgba(21, 128, 61, 0.25);
       
       --accent: #dc2626;
       --accent-light: #fee2e2;
       
-      --blue: #0284c7;
+      --blue: #0369a1;
       --blue-light: #e0f2fe;
       
       --purple: #7e22ce;
@@ -30,19 +30,19 @@
       --bg-card: #ffffff;
       --bg-card-hover: #f1f5f9;
       
-      --border: #e2e8f0;
-      --border-dark: #cbd5e1;
+      --border: #cbd5e1;
+      --border-dark: #94a3b8;
       --border-green: #86efac;
       
       --text: #0f172a;
-      --text-muted: #475569;
-      --text-dim: #94a3b8;
+      --text-muted: #334155;
+      --text-dim: #64748b;
       
       --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --heading: 'Outfit', sans-serif;
       --mono: 'JetBrains Mono', monospace;
-      --radius: 16px;
-      --radius-sm: 10px;
+      --radius: 18px;
+      --radius-sm: 12px;
       --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -61,6 +61,7 @@
       width: 100vw;
       user-select: none;
       -webkit-font-smoothing: antialiased;
+      font-size: 17px;
     }
 
     /* Ambient background glow for Light Mode */
@@ -70,8 +71,8 @@
       pointer-events: none;
       z-index: 0;
       background: 
-        radial-gradient(circle at 10% 15%, rgba(22, 163, 74, 0.06) 0%, transparent 45%),
-        radial-gradient(circle at 90% 85%, rgba(2, 132, 199, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 10% 15%, rgba(21, 128, 61, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 90% 85%, rgba(3, 105, 161, 0.07) 0%, transparent 50%),
         radial-gradient(circle at 50% 50%, rgba(241, 245, 249, 0.7) 0%, transparent 100%);
     }
 
@@ -79,9 +80,9 @@
       position: fixed;
       inset: 0;
       background-image: 
-        linear-gradient(rgba(15, 23, 42, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
-      background-size: 36px 36px;
+        linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
       pointer-events: none;
       z-index: 0;
     }
@@ -92,92 +93,92 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 92px;
+      height: 98px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 36px;
-      background: rgba(255, 255, 255, 0.94);
+      padding: 0 40px;
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+      border-bottom: 2px solid var(--border);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
       z-index: 100;
     }
 
     .brand-logos {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 22px;
     }
 
     /* Stop & Go Logo with sleek dark container */
     .stopgo-header-box {
       background: #0f172a;
-      padding: 6px 16px;
+      padding: 6px 18px;
       border-radius: 12px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.22);
       border: 1px solid #1e293b;
-      height: 52px;
+      height: 56px;
     }
 
     .stopgo-header-box img {
-      height: 42px;
+      height: 44px;
       object-fit: contain;
       display: block;
     }
 
     .header-logo-cabsas {
-      height: 52px;
+      height: 54px;
       object-fit: contain;
       display: block;
     }
 
     .header-logo-cgbi {
-      height: 48px;
+      height: 50px;
       object-fit: contain;
       display: block;
     }
 
     .header-logo-sikai {
-      height: 38px;
+      height: 40px;
       object-fit: contain;
       display: block;
     }
 
     .brand-logos .divider {
-      width: 1.5px;
-      height: 32px;
-      background: var(--border-dark);
+      width: 2px;
+      height: 36px;
+      background: var(--border);
     }
 
     /* Client Logo Badge (FEDISPETROL) in Header */
     .client-header-badge {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       background: #ffffff;
-      border: 1.5px solid var(--border-dark);
-      padding: 6px 18px 6px 8px;
+      border: 2px solid var(--border);
+      padding: 6px 20px 6px 8px;
       border-radius: 100px;
-      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
       transition: var(--transition);
     }
 
     .client-header-badge:hover {
       border-color: var(--primary);
-      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.15);
+      box-shadow: 0 4px 16px rgba(21, 128, 61, 0.2);
     }
 
     .client-header-badge img {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       object-fit: cover;
       background: #fff;
-      border: 1.5px solid var(--border);
+      border: 2px solid var(--border);
     }
 
     .client-header-text {
@@ -187,16 +188,16 @@
     }
 
     .client-header-text .sub {
-      font-size: 0.65rem;
+      font-size: 0.72rem;
       color: var(--primary);
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      font-weight: 800;
+      letter-spacing: 1px;
+      font-weight: 900;
       line-height: 1.1;
     }
 
     .client-header-text .name {
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       font-weight: 900;
       color: var(--text);
       letter-spacing: 0.4px;
@@ -206,24 +207,24 @@
     .alliance-badge {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       background: var(--primary-light);
-      border: 1px solid var(--border-green);
-      padding: 6px 14px;
+      border: 1.5px solid var(--border-green);
+      padding: 6px 16px;
       border-radius: 100px;
-      font-size: 0.75rem;
-      font-weight: 800;
+      font-size: 0.82rem;
+      font-weight: 900;
       color: var(--primary-dark);
       text-transform: uppercase;
       letter-spacing: 0.6px;
     }
 
     .alliance-badge .dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: var(--primary);
-      box-shadow: 0 0 8px rgba(22, 163, 74, 0.5);
+      box-shadow: 0 0 8px rgba(21, 128, 61, 0.6);
       animation: pulseDot 2s infinite;
     }
 
@@ -235,7 +236,7 @@
     .header-controls {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .timer-pill {
@@ -243,15 +244,15 @@
       align-items: center;
       gap: 8px;
       background: #ffffff;
-      border: 1px solid var(--border-dark);
-      padding: 8px 16px;
+      border: 1.5px solid var(--border);
+      padding: 8px 18px;
       border-radius: 100px;
       font-family: var(--mono);
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 0.95rem;
+      font-weight: 800;
       color: var(--text);
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       transition: var(--transition);
     }
 
@@ -262,17 +263,17 @@
 
     .ctrl-btn {
       background: #ffffff;
-      border: 1px solid var(--border-dark);
+      border: 1.5px solid var(--border);
       color: var(--text);
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       transition: var(--transition);
     }
 
@@ -292,8 +293,8 @@
     /* Slides Container */
     .deck-container {
       position: absolute;
-      top: 92px;
-      bottom: 64px;
+      top: 98px;
+      bottom: 68px;
       left: 0;
       right: 0;
       overflow: hidden;
@@ -303,7 +304,7 @@
     .slide {
       position: absolute;
       inset: 0;
-      padding: 24px 48px;
+      padding: 24px 50px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -321,22 +322,22 @@
     }
 
     .slide-content-wrapper {
-      max-width: 1440px;
+      max-width: 1460px;
       width: 100%;
       margin: 0 auto;
     }
 
-    /* Slide Typography - Light Mode Crisp */
+    /* Slide Typography - High Legibility for Older Adults */
     .slide-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: var(--primary-light);
-      border: 1px solid var(--border-green);
-      padding: 6px 14px;
+      border: 1.5px solid var(--border-green);
+      padding: 6px 16px;
       border-radius: 100px;
-      font-size: 0.78rem;
-      font-weight: 800;
+      font-size: 0.85rem;
+      font-weight: 900;
       color: var(--primary-dark);
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -345,75 +346,76 @@
 
     .slide-title {
       font-family: var(--heading);
-      font-size: clamp(2rem, 3.1vw, 2.85rem);
+      font-size: clamp(2.2rem, 3.4vw, 3.1rem);
       font-weight: 900;
       line-height: 1.15;
       color: var(--text);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       letter-spacing: -0.5px;
     }
 
     .slide-title span.highlight {
       color: var(--primary);
-      background: linear-gradient(135deg, #15803d 0%, #0284c7 100%);
+      background: linear-gradient(135deg, #15803d 0%, #0369a1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .slide-subtitle {
-      font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+      font-size: clamp(1.1rem, 1.45vw, 1.35rem);
       color: var(--text-muted);
       line-height: 1.55;
       margin-bottom: 24px;
-      max-width: 950px;
+      max-width: 1050px;
+      font-weight: 500;
     }
 
     /* Cards & Layouts */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 28px;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 22px;
     }
 
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 18px;
     }
 
     .grid-5 {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
+      gap: 16px;
     }
 
     .card {
       background: var(--bg-card);
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: var(--radius);
-      padding: 22px;
+      padding: 24px;
       transition: var(--transition);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
     }
 
     .card:hover {
       border-color: var(--primary);
       transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
     }
 
     .card.featured {
-      border: 2px solid var(--primary);
+      border: 2.5px solid var(--primary);
       background: #ffffff;
-      box-shadow: 0 8px 24px rgba(22, 163, 74, 0.12);
+      box-shadow: 0 8px 26px rgba(21, 128, 61, 0.15);
     }
 
     .card.featured::before {
@@ -427,75 +429,76 @@
     }
 
     .card-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
       background: var(--primary-light);
-      border: 1px solid var(--border-green);
+      border: 1.5px solid var(--border-green);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       margin-bottom: 14px;
       color: var(--primary-dark);
     }
 
     .card-title {
       font-family: var(--heading);
-      font-size: 1.2rem;
-      font-weight: 800;
+      font-size: 1.35rem;
+      font-weight: 900;
       color: var(--text);
       margin-bottom: 8px;
+      line-height: 1.25;
     }
 
     .card-desc {
-      font-size: 0.88rem;
+      font-size: 1.02rem;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* Stat Callouts */
     .stat-hero-box {
       background: #ffffff;
-      border: 1.5px solid var(--border-green);
+      border: 2px solid var(--border-green);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 26px 30px;
       display: flex;
       align-items: center;
-      gap: 24px;
-      box-shadow: 0 4px 20px rgba(22, 163, 74, 0.08);
+      gap: 28px;
+      box-shadow: 0 6px 24px rgba(21, 128, 61, 0.1);
     }
 
     .stat-big-number {
       font-family: var(--heading);
-      font-size: 4rem;
+      font-size: 4.5rem;
       font-weight: 900;
       line-height: 1;
       color: var(--primary);
     }
 
     .stat-hero-info h4 {
-      font-size: 1.3rem;
-      font-weight: 800;
+      font-size: 1.45rem;
+      font-weight: 900;
       color: var(--text);
       margin-bottom: 6px;
       font-family: var(--heading);
     }
 
     .stat-hero-info p {
-      font-size: 0.9rem;
+      font-size: 1.05rem;
       color: var(--text-muted);
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     /* Media Containers */
     .media-box {
       border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       position: relative;
       background: #f1f5f9;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
     }
 
     .media-box img, .media-box video {
@@ -507,19 +510,19 @@
 
     .video-badge {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      top: 14px;
+      left: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       backdrop-filter: blur(8px);
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 100px;
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-size: 0.85rem;
+      font-weight: 800;
       color: #ffffff;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       z-index: 2;
     }
 
@@ -529,24 +532,24 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 64px;
+      height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 36px;
-      background: rgba(255, 255, 255, 0.95);
+      padding: 0 40px;
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(20px);
-      border-top: 1px solid var(--border);
-      box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.04);
+      border-top: 2px solid var(--border);
+      box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.05);
       z-index: 100;
     }
 
     .progress-track {
       flex: 1;
-      height: 6px;
+      height: 8px;
       background: #e2e8f0;
-      border-radius: 4px;
-      margin: 0 24px;
+      border-radius: 6px;
+      margin: 0 28px;
       overflow: hidden;
       position: relative;
     }
@@ -556,13 +559,13 @@
       background: linear-gradient(90deg, var(--primary), var(--blue));
       width: 0%;
       transition: width 0.3s ease;
-      border-radius: 4px;
+      border-radius: 6px;
     }
 
     .nav-buttons {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .nav-btn {
@@ -570,14 +573,14 @@
       align-items: center;
       gap: 8px;
       background: #ffffff;
-      border: 1px solid var(--border-dark);
+      border: 1.5px solid var(--border);
       color: var(--text);
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-size: 0.88rem;
-      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       transition: var(--transition);
       text-decoration: none;
     }
@@ -591,40 +594,40 @@
     .nav-btn.primary {
       background: var(--primary);
       color: #ffffff;
-      font-weight: 800;
+      font-weight: 900;
       border-color: var(--primary);
-      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+      box-shadow: 0 4px 16px rgba(21, 128, 61, 0.35);
     }
 
     .nav-btn.primary:hover {
       background: var(--primary-dark);
       transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(22, 163, 74, 0.4);
+      box-shadow: 0 6px 20px rgba(21, 128, 61, 0.45);
     }
 
     .slide-counter {
       font-family: var(--mono);
-      font-size: 0.88rem;
-      font-weight: 700;
+      font-size: 0.95rem;
+      font-weight: 800;
       color: var(--text-muted);
-      min-width: 60px;
+      min-width: 70px;
     }
 
     /* Speaker Notes Panel (Drawer) */
     .notes-panel {
       position: fixed;
-      right: -440px;
-      top: 92px;
-      bottom: 64px;
-      width: 420px;
+      right: -460px;
+      top: 98px;
+      bottom: 68px;
+      width: 440px;
       background: #ffffff;
       backdrop-filter: blur(20px);
-      border-left: 1.5px solid var(--border-dark);
-      padding: 26px;
+      border-left: 2px solid var(--border);
+      padding: 28px;
       z-index: 90;
       transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       overflow-y: auto;
-      box-shadow: -10px 0 35px rgba(15, 23, 42, 0.12);
+      box-shadow: -10px 0 35px rgba(15, 23, 42, 0.15);
     }
 
     .notes-panel.open {
@@ -633,24 +636,24 @@
 
     .notes-title {
       font-family: var(--heading);
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 900;
       color: var(--primary-dark);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1.5px solid var(--border);
     }
 
     .notes-section {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .notes-section-title {
-      font-size: 0.78rem;
-      font-weight: 800;
+      font-size: 0.85rem;
+      font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.8px;
       color: var(--text-dim);
@@ -658,35 +661,36 @@
     }
 
     .notes-text {
-      font-size: 0.92rem;
-      line-height: 1.6;
+      font-size: 1rem;
+      line-height: 1.65;
       color: var(--text);
     }
 
     .notes-keypoint {
       background: var(--bg);
-      border-left: 3.5px solid var(--primary);
-      padding: 10px 14px;
-      border-radius: 0 8px 8px 0;
-      margin-bottom: 10px;
-      font-size: 0.88rem;
+      border-left: 4px solid var(--primary);
+      padding: 12px 16px;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
       color: var(--text);
+      line-height: 1.5;
     }
 
     /* Interactive Calculator in Light Mode */
     .calc-card {
       background: #ffffff;
-      border: 1.5px solid var(--border);
+      border: 2px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+      padding: 26px;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
     }
 
     .calc-slider {
       width: 100%;
-      height: 8px;
-      background: #e2e8f0;
-      border-radius: 4px;
+      height: 10px;
+      background: #cbd5e1;
+      border-radius: 6px;
       outline: none;
       -webkit-appearance: none;
       cursor: pointer;
@@ -694,11 +698,11 @@
 
     .calc-slider::-webkit-slider-thumb {
       -webkit-appearance: none;
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background: var(--primary);
-      box-shadow: 0 0 10px rgba(22, 163, 74, 0.4);
+      box-shadow: 0 0 12px rgba(21, 128, 61, 0.5);
       cursor: pointer;
     }
 
@@ -720,19 +724,19 @@
 
     .overview-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 22px;
       max-width: 1400px;
       margin: 0 auto;
     }
 
     .overview-card {
       background: #ffffff;
-      border: 1.5px solid var(--border);
+      border: 2px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 20px;
+      padding: 22px;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
       transition: var(--transition);
     }
 
@@ -740,41 +744,41 @@
       border-color: var(--primary);
       background: var(--primary-light);
       transform: scale(1.02);
-      box-shadow: 0 8px 20px rgba(22, 163, 74, 0.12);
+      box-shadow: 0 8px 24px rgba(21, 128, 61, 0.15);
     }
 
     .overview-card-num {
       font-family: var(--mono);
-      font-size: 0.8rem;
-      font-weight: 800;
+      font-size: 0.85rem;
+      font-weight: 900;
       color: var(--primary);
       margin-bottom: 6px;
     }
 
     .overview-card-title {
-      font-size: 0.98rem;
-      font-weight: 800;
+      font-size: 1.05rem;
+      font-weight: 900;
       color: var(--text);
     }
 
     .badge-tag {
       display: inline-block;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 0.74rem;
-      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    .badge-green { background: var(--primary-light); color: var(--primary-dark); border: 1px solid var(--border-green); }
-    .badge-blue { background: var(--blue-light); color: var(--blue); border: 1px solid #7dd3fc; }
-    .badge-purple { background: var(--purple-light); color: var(--purple); border: 1px solid #d8b4fe; }
+    .badge-green { background: var(--primary-light); color: var(--primary-dark); border: 1.5px solid var(--border-green); }
+    .badge-blue { background: var(--blue-light); color: var(--blue); border: 1.5px solid #7dd3fc; }
+    .badge-purple { background: var(--purple-light); color: var(--purple); border: 1.5px solid #d8b4fe; }
 
     /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
     @media (max-width: 1024px) {
@@ -802,7 +806,7 @@
       <div class="divider"></div>
       
       <!-- CGBI Large -->
-      <img src="assets/cgbi-logo.png" alt="CGBI" class="header-logo-cgbi" title="CGBI Inmobiliaria">
+      <img src="assets/cgbi-logo.png" alt="CGBI" class="header-logo-cgbi" title="CGBI Inmobiliaria - Consecución de Marcas">
       <div class="divider"></div>
       
       <!-- SIKAI Large -->
@@ -842,23 +846,23 @@
     <!-- ================= SLIDE 1: PORTADA ================= -->
     <section class="slide active" data-index="0" data-time="2" data-title="Portada e Introducción">
       <div class="slide-content-wrapper">
-        <div class="grid-2" style="align-items: center; gap: 40px;">
+        <div class="grid-2" style="align-items: center; gap: 44px;">
           <div>
             <!-- Header Alliance Logos Showcase on Slide 1 -->
-            <div style="background: #ffffff; border: 1.5px solid var(--border); border-radius: 14px; padding: 12px 18px; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 20px; box-shadow: 0 4px 14px rgba(15,23,42,0.05);">
-              <span style="font-size: 0.72rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px;">Alianza:</span>
-              <div style="background: #0f172a; padding: 4px 10px; border-radius: 8px;"><img src="assets/logostop_go.png" alt="Stop&Go" style="height: 28px;"></div>
-              <img src="assets/cab-logo.png" alt="Cabsas" style="height: 32px;">
-              <img src="assets/cgbi-logo.png" alt="CGBI" style="height: 30px;">
-              <img src="assets/sikai-logo.png" alt="Sikai" style="height: 24px;">
+            <div style="background: #ffffff; border: 2px solid var(--border); border-radius: 14px; padding: 14px 20px; margin-bottom: 18px; display: inline-flex; align-items: center; gap: 22px; box-shadow: 0 4px 14px rgba(15,23,42,0.05);">
+              <span style="font-size: 0.8rem; font-weight: 900; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px;">Alianza:</span>
+              <div style="background: #0f172a; padding: 4px 12px; border-radius: 8px;"><img src="assets/logostop_go.png" alt="Stop&Go" style="height: 30px;"></div>
+              <img src="assets/cab-logo.png" alt="Cabsas" style="height: 34px;">
+              <img src="assets/cgbi-logo.png" alt="CGBI" style="height: 32px;">
+              <img src="assets/sikai-logo.png" alt="Sikai" style="height: 26px;">
             </div>
 
             <!-- Destacado Fedispetrol en Portada -->
-            <div style="display: flex; align-items: center; gap: 14px; background: #ffffff; border: 1.5px solid var(--border-dark); padding: 8px 18px 8px 10px; border-radius: 100px; margin-bottom: 16px; width: fit-content; box-shadow: 0 4px 12px rgba(15,23,42,0.05);">
-              <img src="assets/client_logo.jpg" alt="FEDISPETROL" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; background: #fff; border: 1px solid var(--border);">
+            <div style="display: flex; align-items: center; gap: 14px; background: #ffffff; border: 2px solid var(--border); padding: 8px 20px 8px 10px; border-radius: 100px; margin-bottom: 18px; width: fit-content; box-shadow: 0 4px 14px rgba(15,23,42,0.06);">
+              <img src="assets/client_logo.jpg" alt="FEDISPETROL" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: #fff; border: 2px solid var(--border);">
               <div>
-                <div style="font-size: 0.72rem; color: var(--primary); font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px;">PROPUESTA EXCLUSIVA FEDISPETROL</div>
-                <div style="font-size: 0.92rem; color: var(--text); font-weight: 800;">"Energía que une para servir" · 70 Años</div>
+                <div style="font-size: 0.78rem; color: var(--primary); font-weight: 900; text-transform: uppercase; letter-spacing: 0.8px;">PROPUESTA EXCLUSIVA FEDISPETROL</div>
+                <div style="font-size: 1rem; color: var(--text); font-weight: 900;">"Energía que une para servir" · 70 Años</div>
               </div>
             </div>
 
@@ -866,16 +870,16 @@
               Transforme sus <span class="highlight">Espacios Disponibles</span> en Renta Inmobiliaria y Nuevos Negocios
             </h1>
             <p class="slide-subtitle">
-              Alianza multisectorial especializada en convertir áreas subutilizadas de EDS en polos comerciales de alta rentabilidad con arquitectura modular exprés e integración de franquicias líderes.
+              Alianza multisectorial especializada en convertir áreas subutilizadas de EDS en polos comerciales de alta rentabilidad con arquitectura modular exprés y <strong>fuerza comercial activa de consecución de marcas y franquicias</strong>.
             </p>
             
-            <div style="display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap;">
+            <div style="display: flex; gap: 14px; margin-bottom: 30px; flex-wrap: wrap;">
               <div class="badge-tag badge-green">✓ Montaje en 30 Días</div>
               <div class="badge-tag badge-blue">✓ Cero Interrupción Operativa</div>
               <div class="badge-tag badge-purple">✓ Respaldo Nacional de +3,000 EDS</div>
             </div>
 
-            <div style="display: flex; gap: 14px; align-items: center;">
+            <div style="display: flex; gap: 16px; align-items: center;">
               <button class="nav-btn primary" onclick="deck.next()">Iniciar Presentación (30 Min) →</button>
               <button class="nav-btn" onclick="deck.goTo(7)">Ver Tomas Aéreas 🚁</button>
             </div>
@@ -883,9 +887,9 @@
 
           <div class="media-box" style="height: 480px; box-shadow: 0 16px 36px rgba(15,23,42,0.12); border-color: var(--border-green);">
             <img src="assets/estacionesdeservicio.jpeg" alt="Estación de Servicio Transformada">
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 22px; background: linear-gradient(0deg, rgba(15,23,42,0.95) 0%, transparent 100%);">
-              <div style="font-family: var(--heading); font-weight: 800; font-size: 1.2rem; color: #fff;">Ecosistema Comercial Llave en Mano</div>
-              <div style="font-size: 0.85rem; color: #cbd5e1;">Arquitectura liviana, estructuración jurídica y geomarketing inteligente para EDS.</div>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; background: linear-gradient(0deg, rgba(15,23,42,0.96) 0%, transparent 100%);">
+              <div style="font-family: var(--heading); font-weight: 900; font-size: 1.3rem; color: #fff; margin-bottom: 4px;">Ecosistema Comercial Llave en Mano</div>
+              <div style="font-size: 0.95rem; color: #e2e8f0;">Arquitectura liviana, consecución de marcas comerciales, estructuración jurídica y geomarketing.</div>
             </div>
           </div>
         </div>
@@ -920,68 +924,68 @@
 
           <div class="card">
             <div class="card-icon">🤝</div>
-            <h3 class="card-title">Alianza Interdisciplinaria 360°</h3>
+            <h3 class="card-title">Fuerza Comercial & Respaldo 360°</h3>
             <p class="card-desc">
-              Integramos construcción (Stop & Go), respaldo confederado de +3000 EDS (CABSAS), estructuración inmobiliaria (CGBI) e inteligencia de datos (SIKAI).
+              Integramos construcción (Stop & Go), respaldo confederado de +3000 EDS (CABSAS), fuerza de consecución de marcas y comercialización (CGBI) e inteligencia de datos (SIKAI).
             </p>
           </div>
         </div>
 
-        <div class="stat-hero-box" style="padding: 20px 28px;">
-          <div style="font-family: var(--mono); font-size: 2.2rem; font-weight: 900; color: var(--primary);">100%</div>
+        <div class="stat-hero-box" style="padding: 22px 30px;">
+          <div style="font-family: var(--mono); font-size: 2.6rem; font-weight: 900; color: var(--primary);">100%</div>
           <div class="stat-hero-info">
-            <h4 style="font-size: 1.15rem; margin: 0;">Seguridad y Normatividad Garantizada</h4>
-            <p style="font-size: 0.88rem; margin: 0;">Módulos diseñados conforme a distancias de seguridad RETIE, NFPA y directrices del Ministerio de Minas y Energía.</p>
+            <h4 style="font-size: 1.3rem; margin: 0;">Seguridad y Normatividad Garantizada</h4>
+            <p style="font-size: 0.98rem; margin: 0;">Módulos diseñados conforme a distancias de seguridad RETIE, NFPA y directrices del Ministerio de Minas y Energía.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= SLIDE 3: DIAGNÓSTICO DEL SECTOR EDS ================= -->
+    <!-- ================= SLIDE 3: DIAGNÓSTICO DEL SECTOR EDS (SIN JBERMUDEZ) ================= -->
     <section class="slide" data-index="2" data-time="4" data-title="2. Diagnóstico del Sector">
       <div class="slide-content-wrapper">
         <div class="slide-badge">2. DIAGNÓSTICO SECTORIAL</div>
         <h2 class="slide-title">El 40% al 55% de las EDS tienen <span class="highlight">Metros Cuadrados Desaprovechados</span></h2>
         <p class="slide-subtitle">
-          Según datos del sector y estudios de mercado (JBermúdez), más de la mitad de las estaciones de servicio en Bogotá y ciudades principales cuentan con lotes, islas o locales ociosos.
+          Según datos y análisis del sector a nivel nacional, más de la mitad de las estaciones de servicio en Bogotá y principales ciudades cuentan con lotes, esquinas o locales disponibles.
         </p>
 
         <div class="grid-2" style="gap: 32px; align-items: center;">
           <div>
-            <div class="stat-hero-box" style="margin-bottom: 20px;">
+            <div class="stat-hero-box" style="margin-bottom: 22px;">
               <div class="stat-big-number">55%</div>
               <div class="stat-hero-info">
-                <h4>Espacios Subutilizados en Bogotá</h4>
-                <p>Metros cuadrados en esquinas y vías arterias que hoy no generan un solo peso de renta y solo pagan impuesto predial.</p>
+                <h4>Espacios Subutilizados en Ciudades y Vías</h4>
+                <p>Metros cuadrados en esquinas y vías arterias que hoy no generan renta y solo pagan impuesto predial.</p>
               </div>
             </div>
 
             <div class="grid-2">
-              <div class="card" style="padding: 18px; border-left: 4px solid var(--accent);">
-                <div style="color: var(--accent); font-weight: 800; font-size: 1.1rem; margin-bottom: 4px;">✗ El Problema</div>
-                <div style="font-size: 0.88rem; color: var(--text-muted);">Dependencia exclusiva del margen del galonaje y costos fijos crecientes.</div>
+              <div class="card" style="padding: 20px; border-left: 5px solid var(--accent);">
+                <div style="color: var(--accent); font-weight: 900; font-size: 1.2rem; margin-bottom: 6px;">✗ El Problema</div>
+                <div style="font-size: 0.98rem; color: var(--text-muted); font-weight: 500;">Dependencia exclusiva del margen del galonaje y costos fijos crecientes.</div>
               </div>
-              <div class="card" style="padding: 18px; border-left: 4px solid var(--primary);">
-                <div style="color: var(--primary); font-weight: 800; font-size: 1.1rem; margin-bottom: 4px;">✓ La Oportunidad</div>
-                <div style="font-size: 0.88rem; color: var(--text-muted);">Convertir el flujo de miles de vehículos diarios en ingresos por retail y servicios.</div>
+              <div class="card" style="padding: 20px; border-left: 5px solid var(--primary);">
+                <div style="color: var(--primary); font-weight: 900; font-size: 1.2rem; margin-bottom: 6px;">✓ La Oportunidad</div>
+                <div style="font-size: 0.98rem; color: var(--text-muted); font-weight: 500;">Convertir el flujo de miles de vehículos diarios en ingresos por retail y marcas comerciales.</div>
               </div>
             </div>
           </div>
 
-          <div class="card" style="padding: 26px; border: 1.5px solid var(--border-dark);">
-            <h3 style="font-family: var(--heading); font-size: 1.25rem; color: var(--text); margin-bottom: 16px;">El Cambio en el Negocio de las EDS</h3>
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-              <div style="display: flex; gap: 12px; align-items: flex-start;">
-                <div style="background: var(--accent-light); color: var(--accent); padding: 4px 8px; border-radius: 6px; font-weight: 800; font-size: 0.75rem;">ANTES</div>
-                <div style="font-size: 0.88rem; color: var(--text-muted);">Solo vender combustible. Cliente entra, tanquea 3 minutos y se va inmediatamente.</div>
+          <div class="card" style="padding: 28px; border: 2px solid var(--border);">
+            <h3 style="font-family: var(--heading); font-size: 1.35rem; color: var(--text); margin-bottom: 18px; font-weight: 900;">El Cambio en el Negocio de las EDS</h3>
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+              <div style="display: flex; gap: 14px; align-items: flex-start;">
+                <div style="background: var(--accent-light); color: var(--accent); padding: 5px 10px; border-radius: 8px; font-weight: 900; font-size: 0.85rem;">ANTES</div>
+                <div style="font-size: 0.98rem; color: var(--text-muted);">Solo vender combustible. El cliente entra, tanquea 3 minutos y se retira sin generar más ingresos.</div>
               </div>
-              <div style="display: flex; gap: 12px; align-items: flex-start;">
-                <div style="background: var(--primary-light); color: var(--primary-dark); padding: 4px 8px; border-radius: 6px; font-weight: 800; font-size: 0.75rem;">HOY</div>
-                <div style="font-size: 0.88rem; color: var(--text); font-weight: 600;">Hub de conveniencia y movilidad: café, comidas, farmacia, servicios y compra de paso.</div>
+              <div style="display: flex; gap: 14px; align-items: flex-start;">
+                <div style="background: var(--primary-light); color: var(--primary-dark); padding: 5px 10px; border-radius: 8px; font-weight: 900; font-size: 0.85rem;">HOY</div>
+                <div style="font-size: 0.98rem; color: var(--text); font-weight: 700;">Hub de conveniencia y movilidad: café, comidas, farmacia, servicios y compra de paso con marcas líderes.</div>
               </div>
-              <div style="display: flex; gap: 12px; align-items: flex-start;">
-                <div style="background: var(--blue-light); color: var(--blue); padding: 4px 8px; border-radius: 6px; font-weight: 800; font-size: 0.75rem;">RESULTADO</div>
-                <div style="font-size: 0.88rem; color: var(--text); font-weight: 800;">Mayor tiempo de permanencia, fidelización del conductor y renta fija recurrente.</div>
+              <div style="display: flex; gap: 14px; align-items: flex-start;">
+                <div style="background: var(--blue-light); color: var(--blue); padding: 5px 10px; border-radius: 8px; font-weight: 900; font-size: 0.85rem;">RESULTADO</div>
+                <div style="font-size: 0.98rem; color: var(--text); font-weight: 900;">Mayor tiempo de permanencia, fidelización del conductor y canon de renta mensual fija garantizada.</div>
               </div>
             </div>
           </div>
@@ -1001,44 +1005,44 @@
         <div class="grid-4">
           <div class="card featured">
             <div class="card-icon">💰</div>
-            <div class="badge-tag badge-green" style="margin-bottom: 10px;">2.1 Renta Activa</div>
-            <h3 class="card-title" style="font-size: 1.15rem;">Monetización Inmediata</h3>
+            <div class="badge-tag badge-green" style="margin-bottom: 12px;">2.1 Renta Activa</div>
+            <h3 class="card-title">Monetización Inmediata</h3>
             <p class="card-desc">
-              Transformación de áreas muertas (retiros, esquinas, bahías ociosas) en fuentes recurrentes de renta mensual o negocios de alto margen.
+              Transformación de áreas muertas (retiros, esquinas, bahías ociosas) en fuentes recurrentes de renta mensual con inquilinos comerciales AAA.
             </p>
           </div>
 
           <div class="card">
             <div class="card-icon">✨</div>
-            <div class="badge-tag badge-blue" style="margin-bottom: 10px;">2.2 Paisajismo</div>
-            <h3 class="card-title" style="font-size: 1.15rem;">Impacto Arquitectónico</h3>
+            <div class="badge-tag badge-blue" style="margin-bottom: 12px;">2.2 Paisajismo</div>
+            <h3 class="card-title">Impacto Arquitectónico</h3>
             <p class="card-desc">
-              Diseños modernos, iluminación LED perimetral y paisajismo urbano que modernizan la imagen de toda la estación.
+              Diseños modernos, iluminación LED perimetral y paisajismo urbano que modernizan radicalmente la imagen de toda la estación.
             </p>
           </div>
 
           <div class="card">
             <div class="card-icon">👥</div>
-            <div class="badge-tag badge-purple" style="margin-bottom: 10px;">2.3 Comunidad</div>
-            <h3 class="card-title" style="font-size: 1.15rem;">Integración Vecinal</h3>
+            <div class="badge-tag badge-purple" style="margin-bottom: 12px;">2.3 Comunidad</div>
+            <h3 class="card-title">Integración Vecinal</h3>
             <p class="card-desc">
-              Creación de espacios amigables de encuentro, terrazas de café y zonas peatonales que capturan tanto a conductores como a vecinos del sector.
+              Creación de espacios amigables de encuentro, terrazas de café y zonas peatonales que capturan tanto a conductores como a residentes del entorno.
             </p>
           </div>
 
           <div class="card">
             <div class="card-icon">🏆</div>
-            <div class="badge-tag badge-green" style="margin-bottom: 10px;">2.4 Marca</div>
-            <h3 class="card-title" style="font-size: 1.15rem;">Sinergia Corporativa</h3>
+            <div class="badge-tag badge-green" style="margin-bottom: 12px;">2.4 Marca</div>
+            <h3 class="card-title">Sinergia Corporativa</h3>
             <p class="card-desc">
               Coexistencia armónica con la bandera mayorista (Terpel, Primax, Biomax, Chevron, Puma) sumando marcas de consumo de primer nivel.
             </p>
           </div>
         </div>
 
-        <div style="margin-top: 22px; background: #ffffff; border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(15,23,42,0.04);">
-          <span style="font-size: 0.88rem; color: var(--text-muted); font-weight: 600;">Marcas Mayoristas Homologadas:</span>
-          <div style="display: flex; gap: 28px; align-items: center; font-weight: 800; font-size: 0.9rem; color: var(--text);">
+        <div style="margin-top: 24px; background: #ffffff; border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 16px 26px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(15,23,42,0.05);">
+          <span style="font-size: 0.95rem; color: var(--text-muted); font-weight: 700;">Marcas Mayoristas Homologadas:</span>
+          <div style="display: flex; gap: 32px; align-items: center; font-weight: 900; font-size: 1rem; color: var(--text);">
             <span>TERPEL</span>
             <span>PRIMAX</span>
             <span>BIOMAX</span>
@@ -1061,55 +1065,55 @@
 
         <div class="grid-4" style="margin-bottom: 24px;">
           <!-- Modulo Compact -->
-          <div class="card" style="padding: 16px;">
-            <div class="media-box" style="height: 140px; margin-bottom: 12px; border-radius: 8px;">
+          <div class="card" style="padding: 18px;">
+            <div class="media-box" style="height: 145px; margin-bottom: 12px; border-radius: 10px;">
               <img src="assets/modulocompact.jpeg" alt="Módulo Compact">
             </div>
-            <div class="badge-tag badge-green" style="margin-bottom: 6px;">15 - 25 m²</div>
-            <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--text);">Módulo Compact</h4>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Ideal para Café Express, Heladerías, Postres o Venta Rápida de Accesorios.</p>
+            <div class="badge-tag badge-green" style="margin-bottom: 8px;">15 - 25 m²</div>
+            <h4 style="font-size: 1.15rem; font-weight: 900; color: var(--text);">Módulo Compact</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px; line-height: 1.45;">Ideal para Café Express, Heladerías, Postres o Venta Rápida de Accesorios.</p>
           </div>
 
           <!-- Modulo Standard -->
-          <div class="card featured" style="padding: 16px;">
-            <div class="media-box" style="height: 140px; margin-bottom: 12px; border-radius: 8px;">
+          <div class="card featured" style="padding: 18px;">
+            <div class="media-box" style="height: 145px; margin-bottom: 12px; border-radius: 10px;">
               <img src="assets/modulostandart.jpeg" alt="Módulo Standard">
             </div>
-            <div class="badge-tag badge-blue" style="margin-bottom: 6px;">30 - 50 m²</div>
-            <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--text);">Módulo Standard</h4>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Tiendas de Conveniencia, Droguerías, Pet Shops y Peluquerías Express.</p>
+            <div class="badge-tag badge-blue" style="margin-bottom: 8px;">30 - 50 m²</div>
+            <h4 style="font-size: 1.15rem; font-weight: 900; color: var(--text);">Módulo Standard</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px; line-height: 1.45;">Tiendas de Conveniencia, Droguerías, Pet Shops y Peluquerías Express.</p>
           </div>
 
           <!-- Modulo Premium -->
-          <div class="card" style="padding: 16px;">
-            <div class="media-box" style="height: 140px; margin-bottom: 12px; border-radius: 8px;">
+          <div class="card" style="padding: 18px;">
+            <div class="media-box" style="height: 145px; margin-bottom: 12px; border-radius: 10px;">
               <img src="assets/modulopremium.jpeg" alt="Módulo Premium">
             </div>
-            <div class="badge-tag badge-purple" style="margin-bottom: 6px;">60 - 120 m²</div>
-            <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--text);">Módulo Premium</h4>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Restaurantes QSR, Comidas Rápidas con terraza exterior y Servicios Múltiples.</p>
+            <div class="badge-tag badge-purple" style="margin-bottom: 8px;">60 - 120 m²</div>
+            <h4 style="font-size: 1.15rem; font-weight: 900; color: var(--text);">Módulo Premium</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px; line-height: 1.45;">Restaurantes QSR, Comidas Rápidas con terraza exterior y Servicios Múltiples.</p>
           </div>
 
           <!-- Modulo Custom -->
-          <div class="card" style="padding: 16px;">
-            <div class="media-box" style="height: 140px; margin-bottom: 12px; border-radius: 8px;">
+          <div class="card" style="padding: 18px;">
+            <div class="media-box" style="height: 145px; margin-bottom: 12px; border-radius: 10px;">
               <img src="assets/retail.jpeg" alt="Módulo Custom">
             </div>
-            <div class="badge-tag badge-green" style="margin-bottom: 6px;">A Medida</div>
-            <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--text);">Módulo Custom</h4>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Adaptado exactamente a la geometría de la estación y bahías de parqueo.</p>
+            <div class="badge-tag badge-green" style="margin-bottom: 8px;">A Medida</div>
+            <h4 style="font-size: 1.15rem; font-weight: 900; color: var(--text);">Módulo Custom</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px; line-height: 1.45;">Adaptado exactamente a la geometría de la estación y bahías de parqueo.</p>
           </div>
         </div>
 
         <div class="grid-3">
-          <div style="display: flex; gap: 10px; align-items: center; font-size: 0.88rem; color: var(--text); background: #fff; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--border);">
-            <span style="color: var(--primary); font-size: 1.3rem;">⏱️</span> <strong>Montaje en 30 días promedio</strong> (vs 12 meses obra tradicional)
+          <div style="display: flex; gap: 12px; align-items: center; font-size: 0.95rem; color: var(--text); background: #fff; padding: 14px 20px; border-radius: 12px; border: 1.5px solid var(--border);">
+            <span style="color: var(--primary); font-size: 1.4rem;">⏱️</span> <strong>Montaje en 30 días promedio</strong> (vs 12 meses obra tradicional)
           </div>
-          <div style="display: flex; gap: 10px; align-items: center; font-size: 0.88rem; color: var(--text); background: #fff; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--border);">
-            <span style="color: var(--primary); font-size: 1.3rem;">🔄</span> <strong>100% Reubicable</strong> (Activo patrimonial desmontable)
+          <div style="display: flex; gap: 12px; align-items: center; font-size: 0.95rem; color: var(--text); background: #fff; padding: 14px 20px; border-radius: 12px; border: 1.5px solid var(--border);">
+            <span style="color: var(--primary); font-size: 1.4rem;">🔄</span> <strong>100% Reubicable</strong> (Activo patrimonial desmontable)
           </div>
-          <div style="display: flex; gap: 10px; align-items: center; font-size: 0.88rem; color: var(--text); background: #fff; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--border);">
-            <span style="color: var(--primary); font-size: 1.3rem;">📉</span> <strong>60% Menor Capex</strong> comparado con obra de mampostería
+          <div style="display: flex; gap: 12px; align-items: center; font-size: 0.95rem; color: var(--text); background: #fff; padding: 14px 20px; border-radius: 12px; border: 1.5px solid var(--border);">
+            <span style="color: var(--primary); font-size: 1.4rem;">📉</span> <strong>60% Menor Capex</strong> comparado con obra de mampostería
           </div>
         </div>
       </div>
@@ -1121,59 +1125,59 @@
         <div class="slide-badge">OPORTUNIDADES DE MERCADO</div>
         <h2 class="slide-title">¿Qué Negocios se adaptan a su <span class="highlight">Flujo Vehicular</span>?</h2>
         <p class="slide-subtitle">
-          Formatos probados de alta rotación, compra por impulso y conveniencia inmediata que aprovechan la facilidad de parqueo de su EDS.
+          Formatos probados de alta rotación, compra por impulso y conveniencia inmediata comercializados y atraídos por nuestro equipo para su EDS.
         </p>
 
-        <div class="grid-4" style="gap: 16px;">
-          <div class="card" style="padding: 16px;">
-            <div class="media-box" style="height: 110px; margin-bottom: 10px; border-radius: 8px;">
+        <div class="grid-4" style="gap: 18px;">
+          <div class="card" style="padding: 18px;">
+            <div class="media-box" style="height: 120px; margin-bottom: 12px; border-radius: 10px;">
               <img src="assets/cafe express.jpeg" alt="Café Express">
             </div>
-            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text);">☕ Café & Panadería Express</h4>
-            <p style="font-size: 0.78rem; color: var(--text-muted);">Captura el tráfico pendular matutino. Ticket rápido de 2 a 5 minutos.</p>
+            <h4 style="font-size: 1.05rem; font-weight: 900; color: var(--text);">☕ Café & Panadería Express</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Captura el tráfico pendular matutino. Ticket rápido de 2 a 5 minutos.</p>
           </div>
 
-          <div class="card" style="padding: 16px;">
-            <div class="media-box" style="height: 110px; margin-bottom: 10px; border-radius: 8px;">
+          <div class="card" style="padding: 18px;">
+            <div class="media-box" style="height: 120px; margin-bottom: 12px; border-radius: 10px;">
               <img src="assets/drogueria.jpeg" alt="Droguería">
             </div>
-            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text);">💊 Farmacia & Droguería</h4>
-            <p style="font-size: 0.78rem; color: var(--text-muted);">Operación 24/7 y conveniencia médica en ruta con parqueo garantizado.</p>
+            <h4 style="font-size: 1.05rem; font-weight: 900; color: var(--text);">💊 Farmacia & Droguería</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Operación 24/7 y conveniencia médica en ruta con parqueo garantizado.</p>
           </div>
 
-          <div class="card" style="padding: 16px;">
-            <div class="media-box" style="height: 110px; margin-bottom: 10px; border-radius: 8px;">
+          <div class="card" style="padding: 18px;">
+            <div class="media-box" style="height: 120px; margin-bottom: 12px; border-radius: 10px;">
               <img src="assets/comidas rapidas.jpeg" alt="Comidas Rápidas">
             </div>
-            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text);">🍔 QSR & Comidas Rápidas</h4>
-            <p style="font-size: 0.78rem; color: var(--text-muted);">Hamburguesas, pizzas y snacks con terraza para mayor tiempo de permanencia.</p>
+            <h4 style="font-size: 1.05rem; font-weight: 900; color: var(--text);">🍔 QSR & Comidas Rápidas</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Hamburguesas, pizzas y snacks con terraza para mayor tiempo de permanencia.</p>
           </div>
 
-          <div class="card" style="padding: 16px;">
-            <div class="media-box" style="height: 110px; margin-bottom: 10px; border-radius: 8px;">
+          <div class="card" style="padding: 18px;">
+            <div class="media-box" style="height: 120px; margin-bottom: 12px; border-radius: 10px;">
               <img src="assets/tienda para mascotas.jpeg" alt="Pet Shop">
             </div>
-            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text);">🐾 Pet Shop Express</h4>
-            <p style="font-size: 0.78rem; color: var(--text-muted);">Alimentos y snacks para mascotas en el trayecto de regreso al hogar.</p>
+            <h4 style="font-size: 1.05rem; font-weight: 900; color: var(--text);">🐾 Pet Shop Express</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">Alimentos y snacks para mascotas en el trayecto de regreso al hogar.</p>
           </div>
         </div>
 
-        <div class="grid-4" style="gap: 16px; margin-top: 16px;">
-          <div class="card" style="padding: 14px;">
-            <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--primary);">💈 Barbería & Estética</h4>
-            <p style="font-size: 0.75rem; color: var(--text-muted);">Cortes ágiles para conductores mientras lavan o tanquean.</p>
+        <div class="grid-4" style="gap: 18px; margin-top: 18px;">
+          <div class="card" style="padding: 16px;">
+            <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--primary);">💈 Barbería & Estética</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Cortes ágiles para conductores mientras lavan o tanquean.</p>
           </div>
-          <div class="card" style="padding: 14px;">
-            <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--primary);">🍦 Helados & Postres</h4>
-            <p style="font-size: 0.75rem; color: var(--text-muted);">Compra por antojo en horas pico de la tarde y fines de semana.</p>
+          <div class="card" style="padding: 16px;">
+            <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--primary);">🍦 Helados & Postres</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Compra por antojo en horas pico de la tarde y fines de semana.</p>
           </div>
-          <div class="card" style="padding: 14px;">
-            <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--primary);">📱 Tech & Accesorios</h4>
-            <p style="font-size: 0.75rem; color: var(--text-muted);">Cargadores, cables y gadgets esenciales para conductores.</p>
+          <div class="card" style="padding: 16px;">
+            <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--primary);">📱 Tech & Accesorios</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Cargadores, cables y gadgets esenciales para conductores.</p>
           </div>
-          <div class="card" style="padding: 14px;">
-            <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--primary);">⚡ Electrolineras & Hub</h4>
-            <p style="font-size: 0.75rem; color: var(--text-muted);">Micromovilidad y recarga de vehículos eléctricos de nueva generación.</p>
+          <div class="card" style="padding: 16px;">
+            <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--primary);">⚡ Electrolineras & Hub</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Micromovilidad y recarga de vehículos eléctricos de nueva generación.</p>
           </div>
         </div>
       </div>
@@ -1188,32 +1192,32 @@
           Proyectos en proceso de fabricación, montaje y adecuación comercial que demuestran la viabilidad técnica y rentabilidad inmediata del modelo.
         </p>
 
-        <div class="grid-3" style="gap: 24px;">
-          <div class="card" style="padding: 16px;">
-            <div class="media-box" style="height: 220px; margin-bottom: 14px;">
+        <div class="grid-3" style="gap: 26px;">
+          <div class="card" style="padding: 18px;">
+            <div class="media-box" style="height: 220px; margin-bottom: 16px;">
               <img src="assets/sobrenosotros.jpeg" alt="Montaje en Curso">
               <div class="video-badge">📍 Bogotá Norte - En Ejecución</div>
             </div>
-            <h4 style="font-family: var(--heading); font-size: 1.15rem; color: var(--text); margin-bottom: 6px;">Módulo Comercial Doble</h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Integración de Café Gourmet y Tienda de Conveniencia en franja perimetral de 75 m² sin tocar islas de bombeo.</p>
+            <h4 style="font-family: var(--heading); font-size: 1.25rem; font-weight: 900; color: var(--text); margin-bottom: 6px;">Módulo Comercial Doble</h4>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.5;">Integración de Café Gourmet y Tienda de Conveniencia en franja perimetral de 75 m² sin tocar islas de bombeo.</p>
           </div>
 
-          <div class="card featured" style="padding: 16px;">
-            <div class="media-box" style="height: 220px; margin-bottom: 14px;">
+          <div class="card featured" style="padding: 18px;">
+            <div class="media-box" style="height: 220px; margin-bottom: 16px;">
               <img src="assets/estacionesdeservicio.jpeg" alt="Proyecto Integrado">
-              <div class="video-badge" style="background: rgba(2,132,199,0.9); color: #fff;">📍 Corredor Autopista - En Ensamble</div>
+              <div class="video-badge" style="background: rgba(3,105,161,0.95); color: #fff;">📍 Corredor Autopista - En Ensamble</div>
             </div>
-            <h4 style="font-family: var(--heading); font-size: 1.15rem; color: var(--text); margin-bottom: 6px;">Food Hub Express con Terraza</h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Adecuación de zona verde en desuso convirtiéndola en locales modulares de comidas con mobiliario urbano exterior.</p>
+            <h4 style="font-family: var(--heading); font-size: 1.25rem; font-weight: 900; color: var(--text); margin-bottom: 6px;">Food Hub Express con Terraza</h4>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.5;">Adecuación de zona verde en desuso convirtiéndola en locales modulares de comidas con mobiliario urbano exterior.</p>
           </div>
 
-          <div class="card" style="padding: 16px;">
-            <div class="media-box" style="height: 220px; margin-bottom: 14px;">
+          <div class="card" style="padding: 18px;">
+            <div class="media-box" style="height: 220px; margin-bottom: 16px;">
               <img src="assets/centroslogisticos.jpeg" alt="Hub de Servicios">
-              <div class="video-badge" style="background: rgba(126,34,206,0.9); color: #fff;">📍 Occidente - Estructuración</div>
+              <div class="video-badge" style="background: rgba(126,34,206,0.95); color: #fff;">📍 Occidente - Comercialización CGBI</div>
             </div>
-            <h4 style="font-family: var(--heading); font-size: 1.15rem; color: var(--text); margin-bottom: 6px;">Punto Farmacia & Retail 24/7</h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Módulo Standard de 45 m² con contrato a largo plazo firmado con franquicia de droguería nacional.</p>
+            <h4 style="font-family: var(--heading); font-size: 1.25rem; font-weight: 900; color: var(--text); margin-bottom: 6px;">Punto Farmacia & Retail 24/7</h4>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.5;">Módulo Standard de 45 m² con contrato de arrendamiento comercial de largo plazo gestionado y firmado con franquicia nacional.</p>
           </div>
         </div>
       </div>
@@ -1228,37 +1232,37 @@
           Parte de nuestra propuesta comercial consiste en realizar la muestra y valoración del punto mediante tomas aéreas con Drones, evaluando directamente la visibilidad, los accesos viales y las condiciones de factibilidad y viabilidad de su estación.
         </p>
 
-        <div class="grid-2" style="gap: 24px; align-items: stretch;">
+        <div class="grid-2" style="gap: 26px; align-items: stretch;">
           <!-- Video 1 -->
-          <div class="card" style="padding: 16px; display: flex; flex-direction: column;">
-            <div class="media-box" style="height: 260px; margin-bottom: 14px; position: relative;">
+          <div class="card" style="padding: 18px; display: flex; flex-direction: column;">
+            <div class="media-box" style="height: 260px; margin-bottom: 16px; position: relative;">
               <video controls preload="metadata" style="width: 100%; height: 100%; object-fit: cover;">
                 <source src="assets/video_drone_1.mp4" type="video/mp4">
                 Tu navegador no soporta reproducción de video local.
               </video>
               <div class="video-badge">🚁 Toma Aérea 1: Accesibilidad y Entorno</div>
             </div>
-            <h4 style="font-family: var(--heading); font-size: 1.1rem; color: var(--text); margin-bottom: 6px;">Perspectiva de Flujo y Radios de Giro</h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Muestra visual de la accesibilidad vehicular, circulación interna, zonas de parqueo y ángulo de visión del conductor desde la vía principal.</p>
+            <h4 style="font-family: var(--heading); font-size: 1.2rem; font-weight: 900; color: var(--text); margin-bottom: 6px;">Perspectiva de Flujo y Radios de Giro</h4>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.5;">Muestra visual de la accesibilidad vehicular, circulación interna, zonas de parqueo y ángulo de visión del conductor desde la vía principal.</p>
           </div>
 
           <!-- Video 2 -->
-          <div class="card featured" style="padding: 16px; display: flex; flex-direction: column;">
-            <div class="media-box" style="height: 260px; margin-bottom: 14px; position: relative;">
+          <div class="card featured" style="padding: 18px; display: flex; flex-direction: column;">
+            <div class="media-box" style="height: 260px; margin-bottom: 16px; position: relative;">
               <video controls preload="metadata" style="width: 100%; height: 100%; object-fit: cover;">
                 <source src="assets/video_drone_2.mp4" type="video/mp4">
                 Tu navegador no soporta reproducción de video local.
               </video>
-              <div class="video-badge" style="background: rgba(2,132,199,0.9); color: #fff;">🚁 Toma Aérea 2: Levantamiento del Predio</div>
+              <div class="video-badge" style="background: rgba(3,105,161,0.95); color: #fff;">🚁 Toma Aérea 2: Levantamiento del Predio</div>
             </div>
-            <h4 style="font-family: var(--heading); font-size: 1.1rem; color: var(--text); margin-bottom: 6px;">Factibilidad y Viabilidad Espacial</h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Inspección visual detallada del espacio disponible para validar distancias de seguridad y armonía paisajística con las islas de servicio.</p>
+            <h4 style="font-family: var(--heading); font-size: 1.2rem; font-weight: 900; color: var(--text); margin-bottom: 6px;">Factibilidad y Viabilidad Espacial</h4>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.5;">Inspección visual detallada del espacio disponible para validar distancias de seguridad y armonía paisajística con las islas de servicio.</p>
           </div>
         </div>
 
-        <div style="margin-top: 18px; background: var(--primary-light); border: 1.5px solid var(--border-green); border-radius: var(--radius-sm); padding: 14px 22px; display: flex; align-items: center; gap: 14px; box-shadow: 0 2px 10px rgba(22,163,74,0.08);">
-          <span style="font-size: 1.4rem;">🎯</span>
-          <span style="font-size: 0.88rem; color: var(--text);"><strong>Propuesta de Valor Stop & Go:</strong> Realizamos una visita a la estación para hacer el levantamiento con tomas aéreas y determinar las condiciones reales de factibilidad y viabilidad del proyecto.</span>
+        <div style="margin-top: 20px; background: var(--primary-light); border: 2px solid var(--border-green); border-radius: var(--radius-sm); padding: 16px 24px; display: flex; align-items: center; gap: 16px; box-shadow: 0 2px 10px rgba(21,128,61,0.1);">
+          <span style="font-size: 1.6rem;">🎯</span>
+          <span style="font-size: 0.95rem; color: var(--text); line-height: 1.45;"><strong>Propuesta de Valor Stop & Go:</strong> Realizamos una visita a la estación para hacer el levantamiento con tomas aéreas y determinar las condiciones reales de factibilidad y viabilidad del proyecto.</span>
         </div>
       </div>
     </section>
@@ -1272,31 +1276,31 @@
           Flexibilidad absoluta: desde un ingreso 100% pasivo sin invertir un solo peso, hasta la propiedad patrimonial del módulo o la operación de un negocio propio.
         </p>
 
-        <div class="grid-3" style="gap: 24px; margin-bottom: 24px;">
+        <div class="grid-3" style="gap: 26px; margin-bottom: 24px;">
           <!-- Modelo 1: Arriendo del Espacio -->
           <div class="card featured">
             <div class="badge-tag badge-green" style="margin-bottom: 12px;">MODELO A: MÁS POPULAR</div>
-            <h3 class="card-title" style="font-size: 1.3rem;">4.1 Arriendo del Espacio</h3>
-            <div style="font-family: var(--mono); font-size: 1.6rem; font-weight: 900; color: var(--primary); margin: 8px 0;">Cero Inversión</div>
+            <h3 class="card-title">4.1 Arriendo del Espacio</h3>
+            <div style="font-family: var(--mono); font-size: 1.7rem; font-weight: 900; color: var(--primary); margin: 8px 0;">Cero Inversión</div>
             <p class="card-desc" style="margin-bottom: 16px;">
-              Usted arrienda el área disponible. La alianza y la franquicia colocan el módulo, realizan la inversión y pagan un canon mensual fijo garantizado.
+              Usted arrienda el área disponible. <strong>CGBI trae y coloca la marca/franquicia</strong>, la alianza instala el módulo y usted cobra un canon mensual fijo garantizado.
             </p>
-            <ul style="font-size: 0.82rem; color: var(--text-muted); list-style: none; display: flex; flex-direction: column; gap: 6px;">
+            <ul style="font-size: 0.9rem; color: var(--text-muted); list-style: none; display: flex; flex-direction: column; gap: 8px;">
               <li>✓ <strong>Riesgo financiero:</strong> Cero (0)</li>
               <li>✓ <strong>Renta recurrente:</strong> Desde el día 30</li>
-              <li>✓ <strong>Contrato:</strong> A largo plazo garantizado</li>
+              <li>✓ <strong>Contrato:</strong> A largo plazo con póliza</li>
             </ul>
           </div>
 
           <!-- Modelo 2: Compra del Módulo -->
           <div class="card">
             <div class="badge-tag badge-blue" style="margin-bottom: 12px;">MODELO B: PATRIMONIAL</div>
-            <h3 class="card-title" style="font-size: 1.3rem;">4.2 Compra del Módulo</h3>
-            <div style="font-family: var(--mono); font-size: 1.6rem; font-weight: 900; color: var(--blue); margin: 8px 0;">Activo Rentable</div>
+            <h3 class="card-title">4.2 Compra del Módulo</h3>
+            <div style="font-family: var(--mono); font-size: 1.7rem; font-weight: 900; color: var(--blue); margin: 8px 0;">Activo Rentable</div>
             <p class="card-desc" style="margin-bottom: 16px;">
-              La EDS adquiere la estructura modular prefabricada. Nosotros le entregamos el franquiciado colocado y listo, maximizando el canon mensual recibido.
+              La EDS adquiere la estructura modular. <strong>CGBI le entrega el inquilino/marca comercial colocado y listo</strong>, maximizando el canon mensual recibido.
             </p>
-            <ul style="font-size: 0.82rem; color: var(--text-muted); list-style: none; display: flex; flex-direction: column; gap: 6px;">
+            <ul style="font-size: 0.9rem; color: var(--text-muted); list-style: none; display: flex; flex-direction: column; gap: 8px;">
               <li>✓ <strong>Retorno (ROI):</strong> < 18 meses</li>
               <li>✓ <strong>Mayor canon:</strong> Al ser dueño del local</li>
               <li>✓ <strong>Estructura:</strong> 100% depreciable y reubicable</li>
@@ -1306,12 +1310,12 @@
           <!-- Modelo 3: Negocio Propio -->
           <div class="card">
             <div class="badge-tag badge-purple" style="margin-bottom: 12px;">MODELO C: ALTO MARGEN</div>
-            <h3 class="card-title" style="font-size: 1.3rem;">4.3 Explotación Propia</h3>
-            <div style="font-family: var(--mono); font-size: 1.6rem; font-weight: 900; color: var(--purple); margin: 8px 0;">Máxima Utilidad</div>
+            <h3 class="card-title">4.3 Explotación Propia</h3>
+            <div style="font-family: var(--mono); font-size: 1.7rem; font-weight: 900; color: var(--purple); margin: 8px 0;">Máxima Utilidad</div>
             <p class="card-desc" style="margin-bottom: 16px;">
-              Usted adquiere el módulo y opera directamente una franquicia o negocio propio (ej. café, minimarket, llantería express) con nuestro acompañamiento 360°.
+              Usted adquiere el módulo y opera directamente una franquicia o negocio propio (ej. café, minimarket, llantería express) con nuestro acompañamiento integral.
             </p>
-            <ul style="font-size: 0.82rem; color: var(--text-muted); list-style: none; display: flex; flex-direction: column; gap: 6px;">
+            <ul style="font-size: 0.9rem; color: var(--text-muted); list-style: none; display: flex; flex-direction: column; gap: 8px;">
               <li>✓ <strong>100% de la utilidad:</strong> Para la EDS</li>
               <li>✓ <strong>Sinergia total:</strong> Con la venta de combustible</li>
               <li>✓ <strong>Know-how:</strong> Acceso a manuales de franquicia</li>
@@ -1320,84 +1324,84 @@
         </div>
 
         <!-- Mini Calculadora interactiva -->
-        <div class="calc-card" style="padding: 18px 26px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+        <div class="calc-card" style="padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; gap: 28px;">
           <div>
-            <div style="font-weight: 800; color: var(--text); font-size: 1rem;">Estimador de Renta Mensual Adicional</div>
-            <div style="font-size: 0.82rem; color: var(--text-muted);">Calcule el ingreso estimado según el área disponible de su estación:</div>
+            <div style="font-weight: 900; color: var(--text); font-size: 1.1rem;">Estimador de Renta Mensual Adicional</div>
+            <div style="font-size: 0.9rem; color: var(--text-muted);">Calcule el ingreso estimado según el área disponible de su estación:</div>
           </div>
-          <div style="display: flex; align-items: center; gap: 16px; min-width: 320px;">
+          <div style="display: flex; align-items: center; gap: 18px; min-width: 340px;">
             <input type="range" min="20" max="100" value="40" step="10" class="calc-slider" id="areaSlider" oninput="updateEstimate(this.value)">
-            <span style="font-family: var(--mono); font-size: 0.95rem; font-weight: 800; color: var(--primary); min-width: 75px;" id="areaVal">40 m²</span>
+            <span style="font-family: var(--mono); font-size: 1.05rem; font-weight: 900; color: var(--primary); min-width: 85px;" id="areaVal">40 m²</span>
           </div>
           <div style="text-align: right;">
-            <div style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Ingreso Estimado / Mes:</div>
-            <div style="font-family: var(--mono); font-size: 1.4rem; font-weight: 900; color: var(--primary);" id="calcResult">$4.800.000 COP</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">Ingreso Estimado / Mes:</div>
+            <div style="font-family: var(--mono); font-size: 1.55rem; font-weight: 900; color: var(--primary);" id="calcResult">$4.800.000 COP</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= SLIDE 10: ALIANZA 360 Y ROLES (PROTAGONISMO TOTAL A LOGOS) ================= -->
+    <!-- ================= SLIDE 10: ALIANZA 360 Y ROLES (ENFOQUE FUERTE EN CGBI) ================= -->
     <section class="slide" data-index="9" data-time="3" data-title="5. Alianza Estratégica 360°">
       <div class="slide-content-wrapper">
         <div class="slide-badge">5. CÓMO LO HACEMOS Y QUIÉNES SOMOS</div>
         <h2 class="slide-title">Ecosistema Integral de Acompañamiento <span class="highlight">Llave en Mano</span></h2>
         <p class="slide-subtitle">
-          Una alianza estratégica donde cada entidad aporta su máxima especialidad para blindar su inversión y garantizar el éxito comercial de la estación.
+          Una alianza estratégica donde cada entidad aporta su máxima especialidad para blindar su inversión, <strong>conseguir marcas comerciales para sus espacios</strong> y garantizar el éxito de su estación.
         </p>
 
-        <div class="grid-4" style="gap: 20px;">
+        <div class="grid-4" style="gap: 22px;">
           <!-- Stop & Go -->
           <div class="card featured" style="display: flex; flex-direction: column;">
-            <div style="height: 64px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: #0f172a; border-radius: 12px; padding: 6px;">
-              <img src="assets/logostop_go.png" alt="Stop & Go" style="height: 44px; object-fit: contain;">
+            <div style="height: 68px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: #0f172a; border-radius: 14px; padding: 8px;">
+              <img src="assets/logostop_go.png" alt="Stop & Go" style="height: 48px; object-fit: contain;">
             </div>
-            <h4 style="font-size: 1.15rem; font-weight: 900; color: var(--text); margin-bottom: 4px;">Stop & Go Station</h4>
+            <h4 style="font-size: 1.25rem; font-weight: 900; color: var(--text); margin-bottom: 4px;">Stop & Go Station</h4>
             <div class="badge-tag badge-green" style="margin-bottom: 12px; width: fit-content;">Ingeniería & Paisajismo</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; flex: 1;">
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; flex: 1;">
               Diseño arquitectónico, cálculo estructural, fabricación off-site, ensamble exprés en 30 días, paisajismo urbano y tomas aéreas de factibilidad.
             </p>
           </div>
 
           <!-- CABSAS -->
           <div class="card" style="display: flex; flex-direction: column;">
-            <div style="height: 64px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 6px;">
-              <img src="assets/cab-logo.png" alt="CABSAS" style="height: 52px; object-fit: contain;">
+            <div style="height: 68px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: #ffffff; border: 1.5px solid var(--border); border-radius: 14px; padding: 8px;">
+              <img src="assets/cab-logo.png" alt="CABSAS" style="height: 54px; object-fit: contain;">
             </div>
-            <h4 style="font-size: 1.15rem; font-weight: 900; color: var(--text); margin-bottom: 4px;">CABSAS</h4>
+            <h4 style="font-size: 1.25rem; font-weight: 900; color: var(--text); margin-bottom: 4px;">CABSAS</h4>
             <div class="badge-tag badge-blue" style="margin-bottom: 12px; width: fit-content;">Respaldo Gremial</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; flex: 1;">
-              Red confederada de más de 3,000 estaciones de servicio a nivel nacional. Respaldo gremial, garantía jurídica y modelo de arriendo institucional.
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; flex: 1;">
+              Red confederada de más de 3,000 estaciones de servicio a nivel nacional. Respaldo gremial, acompañamiento institucional y garantía de modelo.
             </p>
           </div>
 
-          <!-- CGBI -->
-          <div class="card" style="display: flex; flex-direction: column;">
-            <div style="height: 64px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 6px;">
-              <img src="assets/cgbi-logo.png" alt="CGBI" style="height: 48px; object-fit: contain;">
+          <!-- CGBI Inmobiliaria - ENFOCADO EN CONSECUCIÓN DE MARCAS Y FUERZA COMERCIAL -->
+          <div class="card featured" style="display: flex; flex-direction: column; border-color: var(--blue);">
+            <div style="height: 68px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: #ffffff; border: 1.5px solid var(--border); border-radius: 14px; padding: 8px;">
+              <img src="assets/cgbi-logo.png" alt="CGBI" style="height: 52px; object-fit: contain;">
             </div>
-            <h4 style="font-size: 1.15rem; font-weight: 900; color: var(--text); margin-bottom: 4px;">CGBI Inmobiliaria</h4>
-            <div class="badge-tag badge-purple" style="margin-bottom: 12px; width: fit-content;">Estructuración Jurídica</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; flex: 1;">
-              Gestión comercial e inmobiliaria integral: formalización de contratos de arrendamiento, pólizas de cumplimiento, administración y trámites.
+            <h4 style="font-size: 1.25rem; font-weight: 900; color: var(--text); margin-bottom: 4px;">CGBI Inmobiliaria</h4>
+            <div class="badge-tag badge-blue" style="margin-bottom: 12px; width: fit-content; background: #e0f2fe; color: #0369a1; border-color: #7dd3fc;">Fuerza Comercial & Marcas</div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; flex: 1;">
+              <strong>Fuerza comercial que atrae y consigue marcas/franquicias para que arrienden los espacios de su EDS.</strong> Comercialización activa de locales existentes o nuevos, formalización de contratos, pólizas y administración de rentas.
             </p>
           </div>
 
           <!-- SIKAI Consulting -->
           <div class="card" style="display: flex; flex-direction: column;">
-            <div style="height: 64px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 6px;">
-              <img src="assets/sikai-logo.png" alt="SIKAI Consulting" style="height: 38px; object-fit: contain;">
+            <div style="height: 68px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; background: #ffffff; border: 1.5px solid var(--border); border-radius: 14px; padding: 8px;">
+              <img src="assets/sikai-logo.png" alt="SIKAI Consulting" style="height: 40px; object-fit: contain;">
             </div>
-            <h4 style="font-size: 1.15rem; font-weight: 900; color: var(--text); margin-bottom: 4px;">SIKAI Consulting</h4>
+            <h4 style="font-size: 1.25rem; font-weight: 900; color: var(--text); margin-bottom: 4px;">SIKAI Consulting</h4>
             <div class="badge-tag badge-green" style="margin-bottom: 12px; width: fit-content;">Inteligencia de Datos</div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; flex: 1;">
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; flex: 1;">
               Geomarketing avanzado, conteo de tráfico vehicular relativo por IA, radiometría de influencia (150m y 300m) y match de afinidad comercial.
             </p>
           </div>
         </div>
 
-        <div style="margin-top: 20px; background: #ffffff; border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(15,23,42,0.04);">
-          <span style="font-size: 0.9rem; color: var(--text);">Acceso directo a las franquicias más importantes en la <strong>Feria Internacional FANYF 2026</strong> en Corferias.</span>
+        <div style="margin-top: 22px; background: #ffffff; border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 16px 26px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(15,23,42,0.05);">
+          <span style="font-size: 0.98rem; color: var(--text); font-weight: 600;">Acceso directo a las franquicias y marcas más importantes en la <strong>Feria Internacional FANYF 2026</strong> en Corferias.</span>
           <span class="badge-tag badge-green">FANYF 2026 Partner</span>
         </div>
       </div>
@@ -1409,47 +1413,47 @@
         <div class="slide-badge">6. RUTA DE ACTIVACIÓN RÁPIDA</div>
         <h2 class="slide-title">5 Pasos Sencillos para Activar su <span class="highlight">Nueva Renta</span></h2>
         <p class="slide-subtitle">
-          Nosotros nos encargamos del 100% de la gestión técnica, comercial, jurídica y de obra.
+          Nosotros nos encargamos del 100% de la gestión técnica, comercialización de marcas, contratos y obra.
         </p>
 
-        <div class="grid-5" style="gap: 16px; margin-bottom: 28px;">
-          <div class="card" style="padding: 20px 14px; text-align: center;">
-            <div style="font-family: var(--heading); font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-bottom: 8px;">01</div>
-            <h4 style="font-size: 0.98rem; font-weight: 800; color: var(--text); margin-bottom: 6px;">Voluntad & Cita</h4>
-            <p style="font-size: 0.78rem; color: var(--text-muted);">Su interés de valorizar el predio y agendar la visita inicial a la estación.</p>
+        <div class="grid-5" style="gap: 18px; margin-bottom: 28px;">
+          <div class="card" style="padding: 22px 16px; text-align: center;">
+            <div style="font-family: var(--heading); font-size: 2.4rem; font-weight: 900; color: var(--primary); margin-bottom: 8px;">01</div>
+            <h4 style="font-size: 1.08rem; font-weight: 900; color: var(--text); margin-bottom: 6px;">Voluntad & Cita</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.45;">Su interés de valorizar el predio y agendar la visita inicial a la estación.</p>
           </div>
 
-          <div class="card featured" style="padding: 20px 14px; text-align: center;">
-            <div style="font-family: var(--heading); font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-bottom: 8px;">02</div>
-            <h4 style="font-size: 0.98rem; font-weight: 800; color: var(--text); margin-bottom: 6px;">Visita & Tomas</h4>
-            <p style="font-size: 0.78rem; color: var(--text-muted);">Visita en la estación, tomas aéreas y determinación de condiciones de factibilidad y viabilidad.</p>
+          <div class="card featured" style="padding: 22px 16px; text-align: center;">
+            <div style="font-family: var(--heading); font-size: 2.4rem; font-weight: 900; color: var(--primary); margin-bottom: 8px;">02</div>
+            <h4 style="font-size: 1.08rem; font-weight: 900; color: var(--text); margin-bottom: 6px;">Visita & Tomas</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.45;">Visita en la estación, tomas aéreas y determinación de condiciones de factibilidad y viabilidad.</p>
           </div>
 
-          <div class="card" style="padding: 20px 14px; text-align: center;">
-            <div style="font-family: var(--heading); font-size: 2.2rem; font-weight: 900; color: var(--text); margin-bottom: 8px;">03</div>
-            <h4 style="font-size: 0.98rem; font-weight: 800; color: var(--text); margin-bottom: 6px;">Modelo Comercial</h4>
-            <p style="font-size: 0.78rem; color: var(--text-muted);">Definición del esquema adoptado: Arriendo del espacio, Compra o Negocio propio.</p>
+          <div class="card" style="padding: 22px 16px; text-align: center;">
+            <div style="font-family: var(--heading); font-size: 2.4rem; font-weight: 900; color: var(--text); margin-bottom: 8px;">03</div>
+            <h4 style="font-size: 1.08rem; font-weight: 900; color: var(--text); margin-bottom: 6px;">Modelo Comercial</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.45;">Definición del esquema adoptado: Arriendo del espacio, Compra o Negocio propio.</p>
           </div>
 
-          <div class="card" style="padding: 20px 14px; text-align: center;">
-            <div style="font-family: var(--heading); font-size: 2.2rem; font-weight: 900; color: var(--text); margin-bottom: 8px;">04</div>
-            <h4 style="font-size: 0.98rem; font-weight: 800; color: var(--text); margin-bottom: 6px;">Match Franquicia</h4>
-            <p style="font-size: 0.78rem; color: var(--text-muted);">Presentación de la marca idónea según el estudio de mercado del sector y hábitos de consumo.</p>
+          <div class="card featured" style="padding: 22px 16px; text-align: center; border-color: var(--blue);">
+            <div style="font-family: var(--heading); font-size: 2.4rem; font-weight: 900; color: var(--blue); margin-bottom: 8px;">04</div>
+            <h4 style="font-size: 1.08rem; font-weight: 900; color: var(--text); margin-bottom: 6px;">Consecución de Marcas</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.45;"><strong>CGBI comercializa y trae la marca/inquilino ideal</strong> según el estudio de tráfico de la zona.</p>
           </div>
 
-          <div class="card featured" style="padding: 20px 14px; text-align: center;">
-            <div style="font-family: var(--heading); font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-bottom: 8px;">05</div>
-            <h4 style="font-size: 0.98rem; font-weight: 800; color: var(--text); margin-bottom: 6px;">Formalización Jurídica</h4>
-            <p style="font-size: 0.78rem; color: var(--text-muted);">Formalización jurídica de acuerdos contractuales con CGBI y montaje en 30 días.</p>
+          <div class="card featured" style="padding: 22px 16px; text-align: center;">
+            <div style="font-family: var(--heading); font-size: 2.4rem; font-weight: 900; color: var(--primary); margin-bottom: 8px;">05</div>
+            <h4 style="font-size: 1.08rem; font-weight: 900; color: var(--text); margin-bottom: 6px;">Contrato y Montaje</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.45;">Formalización jurídica de acuerdos con CGBI y montaje modular en seco en 30 días.</p>
           </div>
         </div>
 
-        <div class="stat-hero-box" style="padding: 18px 26px; justify-content: space-between;">
-          <div style="display: flex; align-items: center; gap: 16px;">
-            <span style="font-size: 2rem;">🚀</span>
+        <div class="stat-hero-box" style="padding: 20px 30px; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 18px;">
+            <span style="font-size: 2.2rem;">🚀</span>
             <div>
-              <div style="font-weight: 800; color: var(--text); font-size: 1.05rem;">Tiempo Total Estimado de Activación:</div>
-              <div style="font-size: 0.85rem; color: var(--text-muted);">Desde la visita inicial hasta el primer día de cobro de canon de arrendamiento: <strong>45 días calendario.</strong></div>
+              <div style="font-weight: 900; color: var(--text); font-size: 1.15rem;">Tiempo Total Estimado de Activación:</div>
+              <div style="font-size: 0.92rem; color: var(--text-muted);">Desde la visita inicial hasta el primer día de cobro de canon de arrendamiento: <strong>45 días calendario.</strong></div>
             </div>
           </div>
           <button class="nav-btn primary" onclick="deck.goTo(11)">Agendar Visita Técnica Ahora →</button>
@@ -1460,67 +1464,67 @@
     <!-- ================= SLIDE 12: CIERRE Y PREGUNTAS (SHOWCASE GIGANTE DE LOGOS) ================= -->
     <section class="slide" data-index="11" data-time="3" data-title="7. Cierre, Preguntas y Contacto">
       <div class="slide-content-wrapper">
-        <div class="grid-2" style="align-items: center; gap: 40px;">
+        <div class="grid-2" style="align-items: center; gap: 44px;">
           <div>
             <div class="slide-badge">7. SESIÓN DE PREGUNTAS Y CONTACTO</div>
             <h2 class="slide-title">¿Tiene su EDS Espacios para <span class="highlight">Comenzar a Rentar</span>?</h2>
             <p class="slide-subtitle">
-              Agendemos la visita técnica para realizar la valoración con tomas aéreas y presentarle la propuesta arquitectónica y financiera a la medida.
+              Agendemos la visita técnica para realizar la valoración con tomas aéreas y presentarle la propuesta comercial y de marcas a la medida.
             </p>
 
-            <div style="background: #ffffff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 22px; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(15,23,42,0.05);">
-              <div style="font-weight: 800; color: var(--text); font-size: 1rem; margin-bottom: 12px;">Canales de Atención Inmediata:</div>
+            <div style="background: #ffffff; border: 2px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 18px rgba(15,23,42,0.06);">
+              <div style="font-weight: 900; color: var(--text); font-size: 1.1rem; margin-bottom: 14px;">Canales de Atención Inmediata:</div>
               
-              <div style="display: flex; flex-direction: column; gap: 10px;">
-                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem; color: var(--text);">
-                  <span>🌐</span> <strong>Web:</strong> <a href="https://stopandgo.com.co" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 700;">stopandgo.com.co</a>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: var(--text);">
+                  <span>🌐</span> <strong>Web:</strong> <a href="https://stopandgo.com.co" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 800;">stopandgo.com.co</a>
                 </div>
-                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem; color: var(--text);">
-                  <span>✉️</span> <strong>Gerencia General:</strong> <a href="mailto:gerencia@stopandgo.com.co" style="color: var(--primary); text-decoration: none; font-weight: 700;">gerencia@stopandgo.com.co</a>
+                <div style="display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: var(--text);">
+                  <span>✉️</span> <strong>Gerencia General:</strong> <a href="mailto:gerencia@stopandgo.com.co" style="color: var(--primary); text-decoration: none; font-weight: 800;">gerencia@stopandgo.com.co</a>
                 </div>
-                <div style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem; color: var(--text);">
-                  <span>✉️</span> <strong>Comercial e Inmobiliario:</strong> <a href="mailto:comercial@cgbi.com.co" style="color: var(--primary); text-decoration: none; font-weight: 700;">comercial@cgbi.com.co</a>
+                <div style="display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: var(--text);">
+                  <span>✉️</span> <strong>Comercial e Inmobiliario (Consecución de Marcas):</strong> <a href="mailto:comercial@cgbi.com.co" style="color: var(--primary); text-decoration: none; font-weight: 800;">comercial@cgbi.com.co</a>
                 </div>
               </div>
             </div>
 
-            <div style="display: flex; gap: 14px;">
+            <div style="display: flex; gap: 16px;">
               <button class="nav-btn primary" onclick="alert('¡Gracias por su interés! Comuníquese a gerencia@stopandgo.com.co o comercial@cgbi.com.co para agendar la visita.')">📅 Agendar Visita Técnica</button>
               <button class="nav-btn" onclick="deck.goTo(0)">↺ Volver al Inicio</button>
             </div>
           </div>
 
           <!-- Showcase Visual de Todas las Marcas de la Alianza y Fedispetrol -->
-          <div class="card" style="padding: 32px; text-align: center; border: 2px solid var(--border-green); box-shadow: 0 12px 32px rgba(22,163,74,0.1);">
-            <div style="display: inline-flex; align-items: center; gap: 12px; background: var(--bg); border: 1.5px solid var(--border-dark); padding: 8px 18px 8px 10px; border-radius: 100px; margin-bottom: 24px;">
-              <img src="assets/client_logo.jpg" alt="FEDISPETROL" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; background: #fff;">
+          <div class="card" style="padding: 34px; text-align: center; border: 2.5px solid var(--border-green); box-shadow: 0 14px 36px rgba(21,128,61,0.12);">
+            <div style="display: inline-flex; align-items: center; gap: 14px; background: var(--bg); border: 2px solid var(--border); padding: 8px 20px 8px 10px; border-radius: 100px; margin-bottom: 24px;">
+              <img src="assets/client_logo.jpg" alt="FEDISPETROL" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: #fff; border: 1.5px solid var(--border);">
               <div style="text-align: left;">
-                <div style="font-size: 0.72rem; color: var(--primary); font-weight: 800;">ALIANZA ESTRATÉGICA PARA</div>
-                <div style="font-size: 0.95rem; color: var(--text); font-weight: 900;">FEDISPETROL · 70 AÑOS</div>
+                <div style="font-size: 0.78rem; color: var(--primary); font-weight: 900;">ALIANZA ESTRATÉGICA PARA</div>
+                <div style="font-size: 1.05rem; color: var(--text); font-weight: 900;">FEDISPETROL · 70 AÑOS</div>
               </div>
             </div>
 
-            <h3 style="font-family: var(--heading); font-size: 1.35rem; font-weight: 900; color: var(--text); margin-bottom: 20px;">
+            <h3 style="font-family: var(--heading); font-size: 1.45rem; font-weight: 900; color: var(--text); margin-bottom: 20px;">
               Construyendo Rentabilidad Sostenible
             </h3>
 
             <!-- Showcase de Logos Grandes -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
-              <div style="background: #0f172a; padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; height: 70px;">
-                <img src="assets/logostop_go.png" alt="Stop & Go" style="max-height: 48px; max-width: 100%; object-fit: contain;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 22px;">
+              <div style="background: #0f172a; padding: 14px; border-radius: 14px; display: flex; align-items: center; justify-content: center; height: 74px;">
+                <img src="assets/logostop_go.png" alt="Stop & Go" style="max-height: 52px; max-width: 100%; object-fit: contain;">
               </div>
-              <div style="background: #ffffff; border: 1.5px solid var(--border); padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; height: 70px;">
-                <img src="assets/cab-logo.png" alt="CABSAS" style="max-height: 52px; max-width: 100%; object-fit: contain;">
+              <div style="background: #ffffff; border: 2px solid var(--border); padding: 14px; border-radius: 14px; display: flex; align-items: center; justify-content: center; height: 74px;">
+                <img src="assets/cab-logo.png" alt="CABSAS" style="max-height: 56px; max-width: 100%; object-fit: contain;">
               </div>
-              <div style="background: #ffffff; border: 1.5px solid var(--border); padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; height: 70px;">
-                <img src="assets/cgbi-logo.png" alt="CGBI" style="max-height: 48px; max-width: 100%; object-fit: contain;">
+              <div style="background: #ffffff; border: 2px solid var(--border); padding: 14px; border-radius: 14px; display: flex; align-items: center; justify-content: center; height: 74px;">
+                <img src="assets/cgbi-logo.png" alt="CGBI" style="max-height: 52px; max-width: 100%; object-fit: contain;">
               </div>
-              <div style="background: #ffffff; border: 1.5px solid var(--border); padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; height: 70px;">
-                <img src="assets/sikai-logo.png" alt="SIKAI" style="max-height: 40px; max-width: 100%; object-fit: contain;">
+              <div style="background: #ffffff; border: 2px solid var(--border); padding: 14px; border-radius: 14px; display: flex; align-items: center; justify-content: center; height: 74px;">
+                <img src="assets/sikai-logo.png" alt="SIKAI" style="max-height: 44px; max-width: 100%; object-fit: contain;">
               </div>
             </div>
 
-            <p style="font-size: 0.85rem; color: var(--text-muted);">
+            <p style="font-size: 0.95rem; color: var(--text-muted); font-weight: 600;">
               Bogotá, Colombia · Cobertura Nacional en Estaciones de Servicio
             </p>
           </div>
@@ -1548,12 +1552,12 @@
   <aside class="notes-panel" id="notesPanel">
     <div class="notes-title">
       <span>📝 Guion del Orador</span>
-      <button onclick="deck.toggleNotes()" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem;">✕</button>
+      <button onclick="deck.toggleNotes()" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.3rem; font-weight: 900;">✕</button>
     </div>
     
     <div class="notes-section">
       <div class="notes-section-title">⏱️ Tiempo Estimado de esta Diapositiva</div>
-      <div style="font-family: var(--mono); font-size: 1.1rem; font-weight: 800; color: var(--primary);" id="notesTime">2 Minutos</div>
+      <div style="font-family: var(--mono); font-size: 1.15rem; font-weight: 900; color: var(--primary);" id="notesTime">2 Minutos</div>
     </div>
 
     <div class="notes-section">
@@ -1575,7 +1579,7 @@
   <!-- Grid View Modal -->
   <div class="overview-modal" id="overviewModal">
     <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto 30px auto;">
-      <h2 style="font-family: var(--heading); font-size: 1.8rem; font-weight: 900; color: var(--text);">Mapa General de Diapositivas</h2>
+      <h2 style="font-family: var(--heading); font-size: 2rem; font-weight: 900; color: var(--text);">Mapa General de Diapositivas</h2>
       <button onclick="deck.toggleGrid()" class="nav-btn">✕ Cerrar Vista (G)</button>
     </div>
     <div class="overview-grid" id="overviewGrid"></div>
@@ -1587,7 +1591,7 @@
         slide: 0,
         time: "2 Minutos",
         goal: "Enganchar a los directivos y propietarios de FEDISPETROL mostrando respeto por su trayectoria de 70 años e introduciendo la propuesta de monetización.",
-        script: "Buenos días a toda la mesa directiva y afiliados de FEDISPETROL. Es un honor estar con ustedes hoy. Como bien saben, el negocio de las estaciones de servicio ha evolucionado. La venta de combustible ya no puede ser el único generador de ingresos. Hoy venimos a presentarles una alianza multisectorial diseñada para transformar los metros cuadrados disponibles de sus estaciones en fuentes constantes de renta pasiva y nuevos negocios de alta rentabilidad, con obras limpias que se montan en solo 30 días.",
+        script: "Buenos días a toda la mesa directiva y afiliados de FEDISPETROL. Es un honor estar con ustedes hoy. Como bien saben, el negocio de las estaciones de servicio ha evolucionado. La venta de combustible ya no puede ser el único generador de ingresos. Hoy venimos a presentarles una alianza multisectorial diseñada para transformar los metros cuadrados disponibles de sus estaciones en fuentes constantes de renta pasiva y nuevos negocios de alta rentabilidad, con obras limpias que se montan en solo 30 días y una fuerza comercial dedicada a traer marcas que arrienden sus espacios.",
         keypoints: [
           "Mencionar con orgullo los 70 años de FEDISPETROL ('Energía que une para servir').",
           "Destacar el lema: Cero polvo, cero escombros, montaje en 30 días.",
@@ -1609,9 +1613,9 @@
         slide: 2,
         time: "4 Minutos",
         goal: "Evidenciar la oportunidad económica mostrando que el 40%-55% del área de las EDS está ociosa.",
-        script: "De acuerdo con estudios del sector (JBermúdez), entre el 40% y el 55% de las estaciones de servicio en Bogotá y ciudades intermedias tienen metros cuadrados subutilizados: esquinas, franjas perimetrales y bahías que hoy solo generan costo predial. El cliente ya está en su estación. Entra miles de vehículos al día. Si solo le vendemos combustible, perdemos el 80% de las oportunidades de compra.",
+        script: "De acuerdo con los análisis y censos del sector en las principales ciudades del país, entre el 40% y el 55% de las estaciones de servicio tienen metros cuadrados subutilizados: esquinas, franjas perimetrales y bahías que hoy solo generan costo predial. El cliente ya está en su estación. Entran miles de vehículos al día. Si solo le vendemos combustible, perdemos el 80% de las oportunidades de compra y renta.",
         keypoints: [
-          "El 55% de las estaciones en vías principales tienen lotes disponibles.",
+          "El 55% de las estaciones en vías principales tienen lotes o locales disponibles.",
           "El margen del combustible es cada vez más apretado; el retail y servicios subsidian la rentabilidad.",
           "Convertir la EDS de un simple punto de paso a un hub de conveniencia y permanencia."
         ]
@@ -1642,11 +1646,11 @@
         slide: 5,
         time: "3 Minutos",
         goal: "Demostrar la versatilidad de marcas y franquicias que pueden instalarse.",
-        script: "Miren la diversidad de negocios que podemos integrar: café gourmet para el tráfico matutino, farmacias 24 horas que aprovechan el parqueo seguro, comidas rápidas con terrazas, pet shops, barberías y hasta hubs de micromovilidad o electrolineras. Todo analizado con base en el flujo vehicular específico de su punto.",
+        script: "Miren la diversidad de negocios que podemos integrar y comercializar: café gourmet para el tráfico matutino, farmacias 24 horas que aprovechan el parqueo seguro, comidas rápidas con terrazas, pet shops, barberías y hasta hubs de micromovilidad o electrolineras. Todo analizado con base en el flujo vehicular específico de su punto.",
         keypoints: [
           "Formatos de compra rápida y conveniencia.",
           "Droguerías y farmacias con alta rotación nocturna.",
-          "Marcas reconocidas que elevan el prestigio de la EDS."
+          "Marcas reconocidas atraídas por CGBI que elevan el prestigio de la EDS."
         ]
       },
       {
@@ -1675,7 +1679,7 @@
         slide: 8,
         time: "4 Minutos",
         goal: "Explicar las 3 modalidades de negocio y demostrar la rentabilidad con el estimador interactivo.",
-        script: "Ofrecemos tres opciones según el perfil del propietario: Modelo A (Arriendo del espacio): Usted no invierte un solo peso; nosotros colocamos el módulo y la franquicia le paga una renta fija mensual. Modelo B (Compra del módulo): La EDS adquiere la estructura prefabricada y recibe una renta mensual mucho más alta con un ROI inferior a 18 meses. O Modelo C (Negocio propio): Usted opera directamente la franquicia con nuestro acompañamiento.",
+        script: "Ofrecemos tres opciones según el perfil del propietario: Modelo A (Arriendo del espacio): Usted no invierte un solo peso; CGBI y la alianza traen la marca, montamos el módulo y la franquicia le paga una renta fija mensual. Modelo B (Compra del módulo): La EDS adquiere la estructura prefabricada y CGBI le coloca el inquilino recibiendo una renta mensual más alta con un ROI inferior a 18 meses. O Modelo C (Negocio propio): Usted opera directamente la franquicia con nuestro acompañamiento.",
         keypoints: [
           "Probar el estimador interactivo en pantalla: 40 m² = ~$4.800.000 COP/mes.",
           "El Modelo A es el más solicitado por ser riesgo cero.",
@@ -1685,22 +1689,22 @@
       {
         slide: 9,
         time: "3 Minutos",
-        goal: "Resaltar el valor agregado y blindaje 360° de la Alianza Stop & Go, CABSAS, CGBI y SIKAI.",
-        script: "La gran ventaja de trabajar con nosotros es que no tratan con un contratista aislado, sino con un consorcio interdisciplinario: Stop & Go aporta la ingeniería y ensamble; CABSAS aporta el respaldo confederado de más de 3.000 EDS; CGBI estructura los contratos y administra los cánones; y SIKAI analiza los datos de tráfico vehicular e IA para hacer match con la franquicia perfecta.",
+        goal: "Resaltar el rol de CGBI como fuerza comercial de consecución de marcas y el blindaje 360° de la Alianza.",
+        script: "La gran ventaja de trabajar con nosotros es que cuentan con un equipo comercial e inmobiliario de primer nivel: CGBI es la fuerza comercial dedicada a buscar, negociar y atraer activamente a las marcas y franquicias que quieren arrendar los espacios de sus estaciones. Ellos comercializan tanto sus locales o islas existentes como los nuevos módulos, estructuran los contratos con pólizas y garantizan el pago del canon. Sumado a la ingeniería de Stop & Go, el respaldo confederado de CABSAS y la analítica de SIKAI, el éxito está garantizado.",
         keypoints: [
-          "Alianza oficial y presencia en la Feria Internacional de Franquicias FANYF 2026.",
-          "Acompañamiento integral llave en mano.",
-          "Garantía de cumplimiento en cada etapa del proyecto."
+          "CGBI actúa como su fuerza de ventas inmobiliaria y de consecución de marcas.",
+          "Comercialización de espacios vacíos existentes y de nuevos módulos.",
+          "Presencia oficial en la Feria Internacional de Franquicias FANYF 2026 en Corferias."
         ]
       },
       {
         slide: 10,
         time: "3 Minutos",
         goal: "Explicar la ruta de activación en 5 pasos y comprometer al cliente a agendar la visita.",
-        script: "Iniciar es extremadamente simple. Consta de 5 pasos: 1. Agendar la cita. 2. Realizamos la visita técnica y levantamiento con tomas aéreas. 3. Definimos el modelo comercial. 4. Hacemos el match con la franquicia. Y 5. Formalizamos contratos y montamos el módulo en 30 días. En total, en solo 45 días su estación estará cobrando su primer canon de arrendamiento.",
+        script: "Iniciar es extremadamente simple. Consta de 5 pasos: 1. Agendar la cita. 2. Realizamos la visita técnica y levantamiento con tomas aéreas. 3. Definimos el modelo comercial. 4. CGBI comercializa y realiza el match con la marca o franquicia ideal. Y 5. Formalizamos contratos y montamos el módulo en 30 días. En total, en solo 45 días su estación estará cobrando su primer canon de arrendamiento.",
         keypoints: [
           "Tiempo récord de 45 días calendario desde la visita hasta el cobro.",
-          "Nosotros asumimos el 100% del trabajo pesado técnico y jurídico.",
+          "Nosotros asumimos el 100% del trabajo pesado técnico, comercial y jurídico.",
           "Paso inmediato: confirmar la fecha de la visita técnica a su EDS."
         ]
       },
@@ -1708,7 +1712,7 @@
         slide: 11,
         time: "3 Minutos",
         goal: "Cierre comercial de alto impacto, responder inquietudes y fijar fecha de visita técnica.",
-        script: "Señores dueños de estaciones: el espacio ya lo tienen, los clientes ya transitan frente a su negocio todos los días. Convirtamos esos metros cuadrados en un activo generador de renta. Abramos el espacio para sus preguntas y agendemos desde ya las visitas técnicas a sus estaciones.",
+        script: "Señores dueños de estaciones: el espacio ya lo tienen, los clientes ya transitan frente a su negocio todos los días. Convirtamos esos metros cuadrados en un activo generador de renta pasiva. CGBI y todo el equipo están listos para comercializar sus espacios. Abramos el espacio para sus preguntas y agendemos desde ya las visitas técnicas a sus estaciones.",
         keypoints: [
           "Recordar canales de contacto: gerencia@stopandgo.com.co y comercial@cgbi.com.co.",
           "Responder con seguridad técnica cualquier duda sobre RETIE, pólizas o tiempos.",
