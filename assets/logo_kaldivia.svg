@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 120" width="340" height="120">
+  <defs>
+    <linearGradient id="kalbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2C1810"/>
+      <stop offset="100%" stop-color="#1A0D08"/>
+    </linearGradient>
+  </defs>
+  <rect width="340" height="120" rx="16" fill="url(#kalbg)"/>
+  <rect x="8" y="8" width="324" height="104" rx="12" fill="none" stroke="#D4AF37" stroke-width="2" opacity="0.6"/>
+  <!-- Coffee Bean / Cup Emblem -->
+  <g transform="translate(30, 28)">
+    <circle cx="32" cy="32" r="28" fill="#8B4513" stroke="#D4AF37" stroke-width="2"/>
+    <!-- Coffee bean icon -->
+    <path d="M22 22 Q32 14 42 22 Q46 32 42 42 Q32 50 22 42 Q18 32 22 22 Z" fill="#D4AF37"/>
+    <path d="M32 18 Q36 32 32 46" stroke="#2C1810" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- Typography -->
+  <g transform="translate(108, 42)">
+    <text x="0" y="22" font-family="'Outfit', 'Georgia', serif" font-weight="900" font-size="28" fill="#FFFFFF" letter-spacing="2">KALDIVIA</text>
+    <text x="2" y="44" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#D4AF37" letter-spacing="6">C A F É</text>
+    <text x="2" y="58" font-family="'Inter', sans-serif" font-weight="500" font-size="9" fill="#E2E8F0" letter-spacing="1">CAFÉ DE ORIGEN &amp; BARRA</text>
+  </g>
+</svg>
