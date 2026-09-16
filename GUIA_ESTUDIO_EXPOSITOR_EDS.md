@@ -25,7 +25,7 @@
 - **Maykol Sicard** (Analítica de Datos y Estructuración · SIKAI): `321 261 4848`
 
 ### ✉️ Correos Electrónicos Oficiales:
-- **CGBI Inmobiliaria:** `comercial@cgbi.com.co`
+- **CGBI Inmobiliaria:** `corporate@cgbi.com.co`
 - **Stop & Go Station:** `gerencia@stopandgo.com.co`
 - **SIKAI Consulting:** `maykol.sicard@sikaiconsulting.com`
 
